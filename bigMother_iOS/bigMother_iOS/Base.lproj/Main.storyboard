@@ -80,11 +80,33 @@
         <!--Settings-->
         <scene sceneID="u2J-BE-4tp">
             <objects>
-                <viewController id="f62-sf-sIf" sceneMemberID="viewController">
+                <viewController id="f62-sf-sIf" customClass="ThirdViewController" customModule="bigMother_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="huT-li-cVR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Third View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="ko0-N6-CgW">
+                                <rect key="frame" x="126" y="421" width="162" height="54"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Loaded by ThirdViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aN3-1f-9Sr">
+                                <rect key="frame" x="108" y="472" width="200" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ko0-N6-CgW" firstAttribute="centerX" secondItem="huT-li-cVR" secondAttribute="centerX" id="Cce-O7-y7c"/>
+                            <constraint firstItem="ko0-N6-CgW" firstAttribute="centerY" secondItem="huT-li-cVR" secondAttribute="centerY" id="Ezv-hj-wdH"/>
+                            <constraint firstItem="ko0-N6-CgW" firstAttribute="top" secondItem="OrD-zp-edk" secondAttribute="top" constant="377" id="MDy-pM-U9e"/>
+                            <constraint firstItem="aN3-1f-9Sr" firstAttribute="top" secondItem="ko0-N6-CgW" secondAttribute="bottom" constant="8" symbolic="YES" id="bSh-sq-UB2"/>
+                            <constraint firstItem="ko0-N6-CgW" firstAttribute="centerX" secondItem="aN3-1f-9Sr" secondAttribute="centerX" id="dXj-KO-FiS"/>
+                            <constraint firstItem="ko0-N6-CgW" firstAttribute="leading" secondItem="OrD-zp-edk" secondAttribute="leading" constant="126" id="e7s-3E-A3w"/>
+                            <constraint firstItem="aN3-1f-9Sr" firstAttribute="leading" secondItem="OrD-zp-edk" secondAttribute="leading" constant="100" id="n6j-sm-ih7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="OrD-zp-edk"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" selectedImage="gear" id="wX3-AJ-KpG"/>
