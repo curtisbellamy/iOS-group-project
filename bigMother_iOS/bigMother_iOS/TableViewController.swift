@@ -9,9 +9,23 @@
 import UIKit
 
 class TableViewController: UITableViewController {
+    
+    var options = ["Enable Recurring Updates", "Recurring Settings", "Add New Subject"]
+    var subjects = ["Curtis", "Aidan", "Bella", "Francis"]
+    var sections = ["Options", "Manage Subjects"]
+    
+    var sizes: [Int] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.tableFooterView = UIView()
+        
+        let optionSize: Int = options.count;
+        let subjectSize: Int = subjects.count;
+        
+        sizes = [optionSize, subjectSize]
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -23,26 +37,46 @@ class TableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 5
+        var rows: Int = 0
+
+        if section < sizes.count {
+            rows = sizes[section]
+        }
+
+        return rows
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
+        
+        if (indexPath.section == 0) {
 
-        cell.textLabel?.text = "Section \(indexPath.section) Row \(indexPath.row)"
+            //cell.textLabel?.text = options[indexPath.row]
+            let option = options[indexPath.row]
+            cell.textLabel?.text = option
+//            cell.imageView?.image = UIImage(named: "calendar")
+            
+        } else if (indexPath.section == 1) {
+            cell.textLabel?.text = subjects[indexPath.row]
+        }
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Section \(section)"
+         // Ensure that this is a safe cast
+           if let secNames = sections as? [String]
+           {
+               return secNames[section]
+           }
+
+           // This should never happen, but is a fail safe
+           return "unknown"
     }
 
     /*
