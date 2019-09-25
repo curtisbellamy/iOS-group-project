@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6459C8D72339EE6200AFC0DD /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6459C8D62339EE6200AFC0DD /* SettingsTableViewController.swift */; };
 		64CE01B923368FEE00988039 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CE01B823368FEE00988039 /* AppDelegate.swift */; };
 		64CE01BB23368FEE00988039 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CE01BA23368FEE00988039 /* SceneDelegate.swift */; };
 		64CE01BD23368FEE00988039 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CE01BC23368FEE00988039 /* FirstViewController.swift */; };
@@ -15,10 +14,10 @@
 		64CE01C223368FEE00988039 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64CE01C023368FEE00988039 /* Main.storyboard */; };
 		64CE01C423368FEF00988039 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64CE01C323368FEF00988039 /* Assets.xcassets */; };
 		64CE01C723368FEF00988039 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64CE01C523368FEF00988039 /* LaunchScreen.storyboard */; };
+		64D7F20C233B330C00E2E051 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D7F20B233B330C00E2E051 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6459C8D62339EE6200AFC0DD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		64CE01B523368FEE00988039 /* bigMother_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bigMother_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64CE01B823368FEE00988039 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64CE01BA23368FEE00988039 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +27,7 @@
 		64CE01C323368FEF00988039 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64CE01C623368FEF00988039 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		64CE01C823368FEF00988039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64D7F20B233B330C00E2E051 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,11 +64,11 @@
 				64CE01BA23368FEE00988039 /* SceneDelegate.swift */,
 				64CE01BC23368FEE00988039 /* FirstViewController.swift */,
 				64CE01BE23368FEE00988039 /* SecondViewController.swift */,
+				64D7F20B233B330C00E2E051 /* TableViewController.swift */,
 				64CE01C023368FEE00988039 /* Main.storyboard */,
 				64CE01C323368FEF00988039 /* Assets.xcassets */,
 				64CE01C523368FEF00988039 /* LaunchScreen.storyboard */,
 				64CE01C823368FEF00988039 /* Info.plist */,
-				6459C8D62339EE6200AFC0DD /* SettingsTableViewController.swift */,
 			);
 			path = bigMother_iOS;
 			sourceTree = "<group>";
@@ -145,9 +145,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				64CE01BF23368FEE00988039 /* SecondViewController.swift in Sources */,
-				6459C8D72339EE6200AFC0DD /* SettingsTableViewController.swift in Sources */,
 				64CE01BD23368FEE00988039 /* FirstViewController.swift in Sources */,
 				64CE01B923368FEE00988039 /* AppDelegate.swift in Sources */,
+				64D7F20C233B330C00E2E051 /* TableViewController.swift in Sources */,
 				64CE01BB23368FEE00988039 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

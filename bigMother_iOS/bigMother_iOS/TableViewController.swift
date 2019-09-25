@@ -1,16 +1,14 @@
 //
-//  SettingsTableViewController.swift
+//  TableViewController.swift
 //  bigMother_iOS
 //
-//  Created by Curtis Bellamy on 2019-09-23.
+//  Created by Curtis Bellamy on 2019-09-24.
 //  Copyright © 2019 Curtis Bellamy. All rights reserved.
 //
 
 import UIKit
 
-class SettingsTableViewController: UITableViewController {
-    
-    let numberOfRowsAtSection: [Int] = [2, 4]
+class TableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,28 +24,26 @@ class SettingsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-           var rows: Int = 0
-
-         if section < numberOfRowsAtSection.count {
-             rows = numberOfRowsAtSection[section]
-         }
-
-         return rows
+        // #warning Incomplete implementation, return the number of rows
+        return 5
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
 
-        // Configure the cell...
+        cell.textLabel?.text = "Section \(indexPath.section) Row \(indexPath.row)"
 
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Section \(section)"
+    }
 
     /*
     // Override to support conditional editing of the table view.
