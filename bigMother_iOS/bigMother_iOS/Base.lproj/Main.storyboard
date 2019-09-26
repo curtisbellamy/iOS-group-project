@@ -10,7 +10,7 @@
         <!--Subjects-->
         <scene sceneID="BIT-Ei-Nqb">
             <objects>
-                <tableViewController id="odj-oS-Nfx" customClass="TableViewController" customModule="bigMother_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="odj-oS-Nfx" customClass="SubjectViewController" customModule="bigMother_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1BT-02-JXg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,7 +44,7 @@
         <!--SubjectDetails-->
         <scene sceneID="cqE-OT-59R">
             <objects>
-                <viewController id="mOa-66-fdV" userLabel="SubjectDetails" customClass="ViewController" customModule="bigMother_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mOa-66-fdV" userLabel="SubjectDetails" customClass="SubjectDetailsViewController" customModule="bigMother_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="130-NE-SIT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -204,15 +204,9 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-<<<<<<< HEAD
                         <segue destination="odj-oS-Nfx" kind="relationship" relationship="viewControllers" id="Vtl-9x-fG7"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="3Es-Vj-9W6"/>
-                        <segue destination="LsA-aP-ryK" kind="relationship" relationship="viewControllers" id="gI3-c6-f0T"/>
-=======
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="xTr-ub-Out" kind="relationship" relationship="viewControllers" id="3FF-Cf-J25"/>
->>>>>>> master
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -226,7 +220,6 @@
         <image name="person.2.fill" catalog="system" width="64" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ec2-53-mBW"/>
         <segue reference="ew9-bh-rwL"/>
     </inferredMetricsTieBreakers>
 </document>
