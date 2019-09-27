@@ -19,6 +19,7 @@
 		A40F076F233B365200CEACDF /* SubjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40F076E233B365200CEACDF /* SubjectController.swift */; };
 		A40F0771233B374600CEACDF /* SubjectDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40F0770233B374600CEACDF /* SubjectDetailsController.swift */; };
 		DBA5C7EF233D9E940023F004 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5C7EE233D9E940023F004 /* LoginViewController.swift */; };
+		E8CB56C1233DBBB80067D266 /* LastUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CB56C0233DBBB80067D266 /* LastUpdateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		A40F076E233B365200CEACDF /* SubjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectController.swift; sourceTree = "<group>"; };
 		A40F0770233B374600CEACDF /* SubjectDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectDetailsController.swift; sourceTree = "<group>"; };
 		DBA5C7EE233D9E940023F004 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E8CB56C0233DBBB80067D266 /* LastUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				640CC308233D98690042BE77 /* SettingsTableViewController.swift */,
 				DBA5C7EE233D9E940023F004 /* LoginViewController.swift */,
 				648B2BF8233DAC4D009265B1 /* QRViewController.swift */,
+				E8CB56C0233DBBB80067D266 /* LastUpdateViewController.swift */,
 			);
 			path = bigMother_iOS;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 				64CE01B923368FEE00988039 /* AppDelegate.swift in Sources */,
 				64CE01BB23368FEE00988039 /* SceneDelegate.swift in Sources */,
 				640CC309233D98690042BE77 /* SettingsTableViewController.swift in Sources */,
+				E8CB56C1233DBBB80067D266 /* LastUpdateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
