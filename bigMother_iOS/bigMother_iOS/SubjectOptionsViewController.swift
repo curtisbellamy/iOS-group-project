@@ -9,10 +9,16 @@
 import UIKit
 
 class SubjectOptionsViewController: UIViewController {
-
+    
+    var name : String!
+    
+    @IBOutlet weak var label: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        label.text = "Settings for " + name
+        
         // Do any additional setup after loading the view.
     }
     

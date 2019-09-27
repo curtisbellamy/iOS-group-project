@@ -16,6 +16,8 @@ class SettingsTableViewController: UITableViewController {
     var sections = ["Options", "Manage Subjects"]
     
     var sizes: [Int] = []
+    
+    var nameText = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,9 +91,15 @@ class SettingsTableViewController: UITableViewController {
                 return
             }
             
+            nameText = subjects[indexPath.row]
+            
+            optionsView.name = self.nameText
             navigationController?.pushViewController(optionsView, animated: true)
+
+            
         }
     }
+    
 
     /*
     // Override to support conditional editing of the table view.
