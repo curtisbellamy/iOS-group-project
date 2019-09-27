@@ -10,9 +10,9 @@
         <!--Subjects-->
         <scene sceneID="BIT-Ei-Nqb">
             <objects>
-                <tableViewController id="odj-oS-Nfx" customClass="TableViewController" customModule="bigMother_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="odj-oS-Nfx" customClass="SubjectViewController" customModule="bigMother_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1BT-02-JXg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -44,7 +44,7 @@
         <!--SubjectDetails-->
         <scene sceneID="cqE-OT-59R">
             <objects>
-                <viewController id="mOa-66-fdV" userLabel="SubjectDetails" customClass="ViewController" customModule="bigMother_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mOa-66-fdV" userLabel="SubjectDetails" customClass="SubjectDetailsViewController" customModule="bigMother_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="130-NE-SIT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -131,7 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-58" y="421"/>
+            <point key="canvasLocation" x="-264" y="381"/>
         </scene>
         <!--Settings-->
         <scene sceneID="v1I-8P-qgl">
@@ -325,7 +325,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Delete Subject">
-                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Only available with peripheral devices" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7C-ID-ga2">
@@ -352,6 +352,6 @@
         <image name="person.2.fill" catalog="system" width="64" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Vtl-9x-fG7"/>
+        <segue reference="ew9-bh-rwL"/>
     </inferredMetricsTieBreakers>
 </document>

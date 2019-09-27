@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SubjectDetailsViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     override func viewDidLoad() {
