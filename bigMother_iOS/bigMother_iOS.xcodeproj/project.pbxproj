@@ -17,6 +17,7 @@
 		64F0B1CB233C699A0025FE76 /* SubjectOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F0B1CA233C699A0025FE76 /* SubjectOptionsViewController.swift */; };
 		A40F076F233B365200CEACDF /* SubjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40F076E233B365200CEACDF /* SubjectController.swift */; };
 		A40F0771233B374600CEACDF /* SubjectDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40F0770233B374600CEACDF /* SubjectDetailsController.swift */; };
+		DBA5C7EF233D9E940023F004 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5C7EE233D9E940023F004 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		64F0B1CA233C699A0025FE76 /* SubjectOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectOptionsViewController.swift; sourceTree = "<group>"; };
 		A40F076E233B365200CEACDF /* SubjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectController.swift; sourceTree = "<group>"; };
 		A40F0770233B374600CEACDF /* SubjectDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectDetailsController.swift; sourceTree = "<group>"; };
+		DBA5C7EE233D9E940023F004 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				64CE01C823368FEF00988039 /* Info.plist */,
 				64F0B1CA233C699A0025FE76 /* SubjectOptionsViewController.swift */,
 				640CC308233D98690042BE77 /* SettingsTableViewController.swift */,
+				DBA5C7EE233D9E940023F004 /* LoginViewController.swift */,
 			);
 			path = bigMother_iOS;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 				64CE01BF23368FEE00988039 /* SecondViewController.swift in Sources */,
 				A40F076F233B365200CEACDF /* SubjectController.swift in Sources */,
 				A40F0771233B374600CEACDF /* SubjectDetailsController.swift in Sources */,
+				DBA5C7EF233D9E940023F004 /* LoginViewController.swift in Sources */,
 				64CE01B923368FEE00988039 /* AppDelegate.swift in Sources */,
 				64CE01BB23368FEE00988039 /* SceneDelegate.swift in Sources */,
 				640CC309233D98690042BE77 /* SettingsTableViewController.swift in Sources */,
