@@ -8,7 +8,8 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
+
+class SettingsTableViewController: UITableViewController {
     
     var options = ["Enable Recurring Updates", "Recurring Settings", "Add New Subject"]
     var subjects = ["Curtis", "Aidan", "Bella", "Francis"]
@@ -53,14 +54,13 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
-        
+
         if (indexPath.section == 0) {
 
-            //cell.textLabel?.text = options[indexPath.row]
             let option = options[indexPath.row]
             cell.textLabel?.text = option
-//            cell.imageView?.image = UIImage(named: "calendar")
-            
+
+
         } else if (indexPath.section == 1) {
             cell.textLabel?.text = subjects[indexPath.row]
         }
@@ -77,6 +77,20 @@ class TableViewController: UITableViewController {
 
            // This should never happen, but is a fail safe
            return "unknown"
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        if indexPath.section == 1 {
+            guard let optionsView = mainStoryBoard.instantiateViewController(withIdentifier: "SubjectOptionsViewController") as? SubjectOptionsViewController else {
+                print("err")
+                return
+            }
+            
+            navigationController?.pushViewController(optionsView, animated: true)
+        }
     }
 
     /*
