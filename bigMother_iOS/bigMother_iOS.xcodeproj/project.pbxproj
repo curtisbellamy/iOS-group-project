@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		640CC309233D98690042BE77 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640CC308233D98690042BE77 /* SettingsTableViewController.swift */; };
+		648B2BF9233DAC4D009265B1 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648B2BF8233DAC4D009265B1 /* QRViewController.swift */; };
 		64CE01B923368FEE00988039 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CE01B823368FEE00988039 /* AppDelegate.swift */; };
 		64CE01BB23368FEE00988039 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CE01BA23368FEE00988039 /* SceneDelegate.swift */; };
 		64CE01BF23368FEE00988039 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CE01BE23368FEE00988039 /* SecondViewController.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		640CC308233D98690042BE77 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		648B2BF8233DAC4D009265B1 /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
 		64CE01B523368FEE00988039 /* bigMother_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bigMother_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64CE01B823368FEE00988039 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64CE01BA23368FEE00988039 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				64F0B1CA233C699A0025FE76 /* SubjectOptionsViewController.swift */,
 				640CC308233D98690042BE77 /* SettingsTableViewController.swift */,
 				DBA5C7EE233D9E940023F004 /* LoginViewController.swift */,
+				648B2BF8233DAC4D009265B1 /* QRViewController.swift */,
 			);
 			path = bigMother_iOS;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 				A40F076F233B365200CEACDF /* SubjectController.swift in Sources */,
 				A40F0771233B374600CEACDF /* SubjectDetailsController.swift in Sources */,
 				DBA5C7EF233D9E940023F004 /* LoginViewController.swift in Sources */,
+				648B2BF9233DAC4D009265B1 /* QRViewController.swift in Sources */,
 				64CE01B923368FEE00988039 /* AppDelegate.swift in Sources */,
 				64CE01BB23368FEE00988039 /* SceneDelegate.swift in Sources */,
 				640CC309233D98690042BE77 /* SettingsTableViewController.swift in Sources */,

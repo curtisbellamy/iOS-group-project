@@ -58,6 +58,25 @@ class SettingsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
 
         if (indexPath.section == 0) {
+            
+            if (indexPath.row == 0){
+                
+                //here is programatically switch make to the table view
+                let switchView = UISwitch(frame: .zero)
+                switchView.setOn(false, animated: true)
+                switchView.tag = indexPath.row // for detect which row switch Changed
+                switchView.addTarget(self, action: #selector(self.switchChanged(_:)), for: .valueChanged)
+                cell.accessoryView = switchView
+                
+            }
+            
+            if indexPath.row == 1 || indexPath.row == 2 {
+                let img = UIImageView(image:UIImage(named:"arrow")!)
+                img.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+
+                cell.accessoryView = img
+
+            }
 
             let option = options[indexPath.row]
             cell.textLabel?.text = option
@@ -65,10 +84,22 @@ class SettingsTableViewController: UITableViewController {
 
         } else if (indexPath.section == 1) {
             cell.textLabel?.text = subjects[indexPath.row]
+            let img = UIImageView(image:UIImage(named:"arrow")!)
+                     img.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
+
+                     cell.accessoryView = img
         }
 
         return cell
     }
+    
+    @objc func switchChanged(_ sender : UISwitch!){
+
+          print("table row switch Changed \(sender.tag)")
+          print("The switch is \(sender.isOn ? "ON" : "OFF")")
+    }
+    
+    
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
          // Ensure that this is a safe cast
@@ -84,6 +115,10 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        if indexPath.section == 0 && indexPath.row == 2 {
+            performSegue(withIdentifier: "QR", sender: self)
+        }
         
         if indexPath.section == 1 {
             guard let optionsView = mainStoryBoard.instantiateViewController(withIdentifier: "SubjectOptionsViewController") as? SubjectOptionsViewController else {
