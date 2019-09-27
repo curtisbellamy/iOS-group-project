@@ -220,6 +220,7 @@
         <image name="person.2.fill" catalog="system" width="64" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Ec2-53-mBW"/>
         <segue reference="ew9-bh-rwL"/>
     </inferredMetricsTieBreakers>
 </document>
