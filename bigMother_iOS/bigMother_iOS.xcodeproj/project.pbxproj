@@ -18,11 +18,14 @@
 		64F0B1CB233C699A0025FE76 /* SubjectOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F0B1CA233C699A0025FE76 /* SubjectOptionsViewController.swift */; };
 		A40F076F233B365200CEACDF /* SubjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40F076E233B365200CEACDF /* SubjectController.swift */; };
 		A40F0771233B374600CEACDF /* SubjectDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40F0770233B374600CEACDF /* SubjectDetailsController.swift */; };
+		CD32FCFE236CA238008B9126 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD32FCFD236CA238008B9126 /* GoogleService-Info.plist */; };
 		DBA5C7EF233D9E940023F004 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5C7EE233D9E940023F004 /* LoginViewController.swift */; };
 		E8CB56C1233DBBB80067D266 /* LastUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CB56C0233DBBB80067D266 /* LastUpdateViewController.swift */; };
+		F41DBAF2B669F9F4D3CC5F1A /* Pods_bigMother_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EAC1C38B72E01C8BAACCD0F /* Pods_bigMother_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5EAC1C38B72E01C8BAACCD0F /* Pods_bigMother_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bigMother_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		640CC308233D98690042BE77 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		648B2BF8233DAC4D009265B1 /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
 		64CE01B523368FEE00988039 /* bigMother.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bigMother.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,6 +40,9 @@
 		A24A0D97236C9F08000BFE40 /* bigMother.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = bigMother.entitlements; sourceTree = "<group>"; };
 		A40F076E233B365200CEACDF /* SubjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectController.swift; sourceTree = "<group>"; };
 		A40F0770233B374600CEACDF /* SubjectDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectDetailsController.swift; sourceTree = "<group>"; };
+		B79E8CC804D274819BE04DF4 /* Pods-bigMother_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bigMother_iOS.release.xcconfig"; path = "Target Support Files/Pods-bigMother_iOS/Pods-bigMother_iOS.release.xcconfig"; sourceTree = "<group>"; };
+		CD32FCFD236CA238008B9126 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CEFF1F9D29EF64627AFAAEAA /* Pods-bigMother_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bigMother_iOS.debug.xcconfig"; path = "Target Support Files/Pods-bigMother_iOS/Pods-bigMother_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		DBA5C7EE233D9E940023F004 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E8CB56C0233DBBB80067D266 /* LastUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -46,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F41DBAF2B669F9F4D3CC5F1A /* Pods_bigMother_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +64,8 @@
 			children = (
 				64CE01B723368FEE00988039 /* bigMother_iOS */,
 				64CE01B623368FEE00988039 /* Products */,
+				87FE1023B198B6F5D8E13D03 /* Pods */,
+				7DEE07BFBF83612496E67027 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,8 +95,27 @@
 				DBA5C7EE233D9E940023F004 /* LoginViewController.swift */,
 				648B2BF8233DAC4D009265B1 /* QRViewController.swift */,
 				E8CB56C0233DBBB80067D266 /* LastUpdateViewController.swift */,
+				CD32FCFD236CA238008B9126 /* GoogleService-Info.plist */,
 			);
 			path = bigMother_iOS;
+			sourceTree = "<group>";
+		};
+		7DEE07BFBF83612496E67027 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5EAC1C38B72E01C8BAACCD0F /* Pods_bigMother_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		87FE1023B198B6F5D8E13D03 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CEFF1F9D29EF64627AFAAEAA /* Pods-bigMother_iOS.debug.xcconfig */,
+				B79E8CC804D274819BE04DF4 /* Pods-bigMother_iOS.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,9 +125,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 64CE01CB23368FEF00988039 /* Build configuration list for PBXNativeTarget "bigMother_iOS" */;
 			buildPhases = (
+				A982631DCC088C6D19F8B1F2 /* [CP] Check Pods Manifest.lock */,
 				64CE01B123368FEE00988039 /* Sources */,
 				64CE01B223368FEE00988039 /* Frameworks */,
 				64CE01B323368FEE00988039 /* Resources */,
+				400DA1054B596A40F3B3E5D4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,12 +179,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				64CE01C723368FEF00988039 /* LaunchScreen.storyboard in Resources */,
+				CD32FCFE236CA238008B9126 /* GoogleService-Info.plist in Resources */,
 				64CE01C423368FEF00988039 /* Assets.xcassets in Resources */,
 				64CE01C223368FEE00988039 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		400DA1054B596A40F3B3E5D4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bigMother_iOS/Pods-bigMother_iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bigMother_iOS/Pods-bigMother_iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-bigMother_iOS/Pods-bigMother_iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A982631DCC088C6D19F8B1F2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-bigMother_iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		64CE01B123368FEE00988039 /* Sources */ = {
@@ -312,6 +385,7 @@
 		};
 		64CE01CC23368FEF00988039 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CEFF1F9D29EF64627AFAAEAA /* Pods-bigMother_iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = bigMother_iOS/bigMother.entitlements;
@@ -332,6 +406,7 @@
 		};
 		64CE01CD23368FEF00988039 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B79E8CC804D274819BE04DF4 /* Pods-bigMother_iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = bigMother_iOS/bigMother.entitlements;

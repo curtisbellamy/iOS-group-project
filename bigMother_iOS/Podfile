@@ -7,4 +7,9 @@ target 'bigMother_iOS' do
 
   # Pods for bigMother_iOS
 
+	pod 'Firebase/Analytics'
+
+	pod 'Firebase/Auth'
+	pod 'Firebase/Firestore'
+
 end
