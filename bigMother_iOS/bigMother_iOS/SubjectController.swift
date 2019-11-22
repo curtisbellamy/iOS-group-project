@@ -10,8 +10,6 @@ import UIKit
 var subjects = ["Curtis", "Bella", "Aiden", "Francis"]
 var myIndex = 0
 class SubjectViewController: UITableViewController {
-
-
     // MARK: - Table view data source
     
     override func viewDidLoad() {

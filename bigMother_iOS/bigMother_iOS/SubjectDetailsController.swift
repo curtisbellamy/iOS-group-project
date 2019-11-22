@@ -9,8 +9,8 @@
 import UIKit
 
 class SubjectDetailsViewController: UIViewController {
-
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var requestUpdate: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = subjects[myIndex]
