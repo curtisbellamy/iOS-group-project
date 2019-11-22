@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>141795722140-5pk3ff723pj62mft16g1ktvn85g8uhf5.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.141795722140-5pk3ff723pj62mft16g1ktvn85g8uhf5</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAF0mOSD7ovZ_j5pHkoVEzZLRdB6ZPNpmI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>141795722140</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>ca.bcit.comp4977.bigMother</string>
+	<key>PROJECT_ID</key>
+	<string>bigmother-21eae</string>
+	<key>STORAGE_BUCKET</key>
+	<string>bigmother-21eae.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:141795722140:ios:85d493925a22d17c037e59</string>
+	<key>DATABASE_URL</key>
+	<string>https://bigmother-21eae.firebaseio.com</string>
+</dict>
+</plist>
