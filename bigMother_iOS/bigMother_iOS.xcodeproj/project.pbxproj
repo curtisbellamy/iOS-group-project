@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,7 @@
 		A40F076F233B365200CEACDF /* SubjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40F076E233B365200CEACDF /* SubjectController.swift */; };
 		A40F0771233B374600CEACDF /* SubjectDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40F0770233B374600CEACDF /* SubjectDetailsController.swift */; };
 		CD32FCFE236CA238008B9126 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD32FCFD236CA238008B9126 /* GoogleService-Info.plist */; };
+		DB4B4FB12387CE9000B4C060 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4B4FB02387CE9000B4C060 /* SignUpViewController.swift */; };
 		DBA5C7EF233D9E940023F004 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5C7EE233D9E940023F004 /* LoginViewController.swift */; };
 		E8CB56C1233DBBB80067D266 /* LastUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CB56C0233DBBB80067D266 /* LastUpdateViewController.swift */; };
 		F41DBAF2B669F9F4D3CC5F1A /* Pods_bigMother_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EAC1C38B72E01C8BAACCD0F /* Pods_bigMother_iOS.framework */; };
@@ -43,6 +44,7 @@
 		B79E8CC804D274819BE04DF4 /* Pods-bigMother_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bigMother_iOS.release.xcconfig"; path = "Target Support Files/Pods-bigMother_iOS/Pods-bigMother_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		CD32FCFD236CA238008B9126 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CEFF1F9D29EF64627AFAAEAA /* Pods-bigMother_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bigMother_iOS.debug.xcconfig"; path = "Target Support Files/Pods-bigMother_iOS/Pods-bigMother_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		DB4B4FB02387CE9000B4C060 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		DBA5C7EE233D9E940023F004 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E8CB56C0233DBBB80067D266 /* LastUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +95,7 @@
 				64F0B1CA233C699A0025FE76 /* SubjectOptionsViewController.swift */,
 				640CC308233D98690042BE77 /* SettingsTableViewController.swift */,
 				DBA5C7EE233D9E940023F004 /* LoginViewController.swift */,
+				DB4B4FB02387CE9000B4C060 /* SignUpViewController.swift */,
 				648B2BF8233DAC4D009265B1 /* QRViewController.swift */,
 				E8CB56C0233DBBB80067D266 /* LastUpdateViewController.swift */,
 				CD32FCFD236CA238008B9126 /* GoogleService-Info.plist */,
@@ -114,7 +117,6 @@
 				CEFF1F9D29EF64627AFAAEAA /* Pods-bigMother_iOS.debug.xcconfig */,
 				B79E8CC804D274819BE04DF4 /* Pods-bigMother_iOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -234,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB4B4FB12387CE9000B4C060 /* SignUpViewController.swift in Sources */,
 				64F0B1CB233C699A0025FE76 /* SubjectOptionsViewController.swift in Sources */,
 				64CE01BF23368FEE00988039 /* SecondViewController.swift in Sources */,
 				A40F076F233B365200CEACDF /* SubjectController.swift in Sources */,

@@ -7,13 +7,24 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class LoginViewController: UIViewController {
+    
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginStatusLabel: UILabel!
+    
+    var db:Firestore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        let settings = FirestoreSettings()
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
         
         /*
          Source: https://spin.atomicobject.com/2017/07/18/swift-interface-builder/
@@ -29,6 +40,39 @@ class LoginViewController: UIViewController {
             ctx.cgContext.drawPath(using: .fillStroke)
         }
     }
+    
+    @IBAction func login(_ sender: Any) {
+        let username = usernameTextField.text!
+        let password = passwordTextField.text!
+        
+        if (username == "" || password == "") {
+            //indicate empty fields
+            return
+        }
+        
+        //simple login
+        db.collection("parents").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    //print("\(document.documentID) => \(document.data())")
+                    if (document.documentID == username) {
+                        if (document["password"] as! String == password) {
+                            self.performSegue(withIdentifier: "loginSegue",sender: self)
+                            
+                            self.loginStatusLabel.textColor = .green
+                            self.loginStatusLabel.text = "Logged in successfully!"
+                            
+                        }
+                    }
+                }
+            }
+        }
+        
+        
+    }
+    
 
     /*
     // MARK: - Navigation
