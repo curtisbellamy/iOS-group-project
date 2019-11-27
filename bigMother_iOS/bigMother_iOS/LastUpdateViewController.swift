@@ -21,7 +21,7 @@ class LastUpdateViewController: UIViewController, CLLocationManagerDelegate, MKM
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        subjectTitle.text = subjects[myIndex] + " Last Update"
+//        subjectTitle.text = subjects[myIndex] + " Last Update"
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()

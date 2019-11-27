@@ -11,8 +11,9 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
     
+    
     var options = ["Enable Recurring Updates", "Recurring Settings", "Add New Subject"]
-    var subjects = ["Curtis", "Aidan", "Bella", "Francis"]
+    var subjects : [String] = ["Curtis", "Aidan", "Bella", "Francis"]
     var sections = ["Options", "Manage Subjects"]
     
     var sizes: [Int] = []
@@ -21,6 +22,7 @@ class SettingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         tableView.tableFooterView = UIView()
         
@@ -55,6 +57,7 @@ class SettingsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
 
         if (indexPath.section == 0) {
@@ -117,7 +120,8 @@ class SettingsTableViewController: UITableViewController {
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
         if indexPath.section == 0 && indexPath.row == 2 {
-            performSegue(withIdentifier: "QR", sender: self)
+//            performSegue(withIdentifier: "QR", sender: self)
+
         }
         
         if indexPath.section == 1 {
@@ -182,3 +186,4 @@ class SettingsTableViewController: UITableViewController {
     */
 
 }
+

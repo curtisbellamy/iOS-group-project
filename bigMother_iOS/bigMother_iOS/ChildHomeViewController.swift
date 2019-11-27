@@ -1,21 +1,20 @@
 //
-//  ViewController.swift
+//  ChildHomeViewController.swift
 //  bigMother_iOS
 //
-//  Created by Yuanyuan Zhang on 2019-09-24.
+//  Created by Curtis Bellamy on 2019-11-26.
 //  Copyright © 2019 Curtis Bellamy. All rights reserved.
 //
 
 import UIKit
 
-class SubjectDetailsViewController: UIViewController {
+class ChildHomeViewController: UITabBarController {
+    
+    var childID : String = ""
 
-    @IBOutlet weak var titleLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        titleLabel.text = subjects[myIndex]
-        
-        
+
         // Do any additional setup after loading the view.
     }
     
