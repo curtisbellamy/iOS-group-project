@@ -69,18 +69,7 @@ class LoginViewController: UIViewController {
                                 self.childArray = children as! [String]
 
                             }
-                            
-//                            if let children = document.data()["children"]! as! [Any] {
-//                                                           self.childArray = children as! [String]
-//
-//                                                       }
-                            
-//                            if children.count == 0 {
-//                                //do nothing
-//                            } else {
-//                                self.childArray = children as! [String]
-//
-//                            }
+
 
                             self.performSegue(withIdentifier: "loginSegue",sender: self)
                             
@@ -136,6 +125,7 @@ class LoginViewController: UIViewController {
             let nav2 = barViewControllers.viewControllers![2] as! UINavigationController
             let destinationViewController2 = nav2.viewControllers[0] as! SettingsTableViewController
             destinationViewController2.subjects = childArray
+            destinationViewController2.parentID = ID
 
 
         }

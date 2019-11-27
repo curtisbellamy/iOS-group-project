@@ -9,6 +9,8 @@
 import UIKit
 import CoreLocation
 import MapKit
+import FirebaseFirestore
+
 
 class LastUpdateViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
@@ -18,10 +20,27 @@ class LastUpdateViewController: UIViewController, CLLocationManagerDelegate, MKM
     
     private let locationManager = CLLocationManager()
     
+    @IBOutlet weak var emotionalState: UITextField!
+    
+    @IBOutlet weak var activity: UITextField!
+    
+    @IBOutlet weak var date: UILabel!
+    
     var subjectName : String = ""
+    
+    var parentID : String = ""
+    
+    var channelID = ""
+
+    
+    var db:Firestore!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let settings = FirestoreSettings()
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
         
         subjectTitle.text = subjectName
 
@@ -33,6 +52,38 @@ class LastUpdateViewController: UIViewController, CLLocationManagerDelegate, MKM
         
         myMapView.delegate = self
         myMapView.showsUserLocation = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let docRef = db.collection("parents").document(parentID)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let channel = document.get("channelIDs") as! NSDictionary
+                for document in channel {
+                    
+                    print("\(document.key):\(document.value)")
+                    
+                    if document.key as? String == self.subjectName {
+                        //self.channelID = (document.value as? String)!
+                        
+                        let channelRef = self.db.collection("channels").document((document.key as? String)!)
+                        print(channelRef.documentID)
+
+                        
+                        
+                        
+                        
+                        
+                        
+                    }
+                }
+
+            } else {
+                print("Document does not exist")
+            }
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])

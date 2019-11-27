@@ -41,6 +41,9 @@ class SubjectViewController: UITableViewController {
             titleLabel.text = "No subjects yet."
         }
         
+        buildArray()
+        self.tableView.reloadData()
+        
 //        var docRef = db.collection("parents").document(parentID)
 //        docRef.getDocument { (document, error) in
 //            if let document = document, document.exists {
@@ -60,9 +63,47 @@ class SubjectViewController: UITableViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(animated)
+
+           buildArray()
+                             
+           self.tableView.reloadData()
+
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        buildArray()
+                          
+        self.tableView.reloadData()
+
+
+    }
+    
+    
+    func buildArray() {
+          let docRef = db.collection("parents").document(parentID)
+
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+
+                  if let children = document.data()?["children"] {
+                        self.subjects = children as! [String]
+
+                    }
+                } else {
+                    print("Document does not exist")
+                }
+            }
+      }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! SubjectDetailsViewController
         destination.subjectName = subjectChosen
+        destination.parentID = parentID
     }
 
 

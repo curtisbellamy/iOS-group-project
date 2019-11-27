@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 
 class SettingsTableViewController: UITableViewController {
     
+    var db:Firestore!
     
     var options = ["Enable Recurring Updates", "Recurring Settings", "Add New Subject"]
     var subjects : [String] = ["Curtis", "Aidan", "Bella", "Francis"]
@@ -19,10 +21,16 @@ class SettingsTableViewController: UITableViewController {
     var sizes: [Int] = []
     
     var nameText = ""
+    
+    var parentID : String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let settings = FirestoreSettings()
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
+            
         
         tableView.tableFooterView = UIView()
         
@@ -30,6 +38,9 @@ class SettingsTableViewController: UITableViewController {
         let subjectSize: Int = subjects.count;
         
         sizes = [optionSize, subjectSize]
+        
+        buildArray()
+        self.tableView.reloadData()
 
 
         // Uncomment the following line to preserve selection between presentations
@@ -37,6 +48,41 @@ class SettingsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+    }
+    
+    func buildArray() {
+        let docRef = db.collection("parents").document(parentID)
+
+          docRef.getDocument { (document, error) in
+              if let document = document, document.exists {
+
+                if let children = document.data()?["children"] {
+                      self.subjects = children as! [String]
+
+                  }
+              } else {
+                  print("Document does not exist")
+              }
+          }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        print("visited back")
+
+        buildArray()
+        let optionSize: Int = options.count;
+        let subjectSize: Int = subjects.count;
+               
+        sizes = [optionSize, subjectSize]
+        
+        self.tableView.reloadData()
+        
+        viewDidLoad()
+
+
     }
 
     // MARK: - Table view data source
@@ -120,7 +166,7 @@ class SettingsTableViewController: UITableViewController {
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
         if indexPath.section == 0 && indexPath.row == 2 {
-//            performSegue(withIdentifier: "QR", sender: self)
+            performSegue(withIdentifier: "scanQR", sender: self)
 
         }
         
@@ -133,6 +179,7 @@ class SettingsTableViewController: UITableViewController {
             nameText = subjects[indexPath.row]
             
             optionsView.name = self.nameText
+            optionsView.parentID = parentID
             navigationController?.pushViewController(optionsView, animated: true)
 
             

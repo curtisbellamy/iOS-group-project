@@ -12,6 +12,8 @@ class SubjectDetailsViewController: UIViewController {
     
     var subjectName : String = ""
     
+    var parentID : String = ""
+    
     @IBOutlet weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
@@ -25,6 +27,7 @@ class SubjectDetailsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! LastUpdateViewController
         destination.subjectName = subjectName
+        destination.parentID = parentID
     }
     
     @IBAction func lastUpdate(_ sender: Any) {

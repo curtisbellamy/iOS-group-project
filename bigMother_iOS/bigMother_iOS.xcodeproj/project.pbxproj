@@ -416,7 +416,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ca.bcit.bigMother;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.bcit.comp4977c;
 				PRODUCT_NAME = bigMother;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -437,7 +437,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ca.bcit.bigMother;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.bcit.comp4977c;
 				PRODUCT_NAME = bigMother;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

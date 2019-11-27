@@ -15,8 +15,11 @@ class SubjectOptionsViewController: UIViewController {
     
     var id = ""
     
+    var parentID : String = ""
     
     var name : String!
+    
+    var childArray : [String] = []
     
     @IBOutlet weak var label: UILabel!
     
@@ -57,7 +60,56 @@ class SubjectOptionsViewController: UIViewController {
                 
     }
     
+    
     @IBAction func deleteTapped(_ sender: Any) {
+        
+        var ref: DocumentReference? = nil
+        ref = db.collection("parents").document(parentID)
+        
+        ref!.updateData([
+            "children": FieldValue.arrayRemove([name!])
+        ])
+        
+        
+        let docRef = db.collection("parents").document(parentID)
+
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let property = document.get("fieldname")
+                if let children = document.data()?["children"] {
+                    self.childArray = children as! [String]
+
+                }
+            } else {
+                print("Document does not exist")
+            }
+        }
+
+        let alert = UIAlertController(title: "Alert", message: "Subject deleted.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+//              switch action.style{
+//              case .default:
+//                    print("default")
+//
+//              case .cancel:
+//                    print("cancel")
+//
+//              case .destructive:
+//                    print("destructive")
+            if let navController = self.navigationController {
+                navController.popViewController(animated: true)
+            }
+            
+
+
+        }))
+        self.present(alert, animated: true, completion: nil)
+        
+        print("Child succesfully removed.")
+        
+//        if let navController = self.navigationController {
+//            navController.popViewController(animated: true)
+//        }
         
 //        db.collection("children").document("child4@gmail.com").setData([
 //            "emotionalState": "Annoyed",
@@ -87,25 +139,29 @@ class SubjectOptionsViewController: UIViewController {
 //                }
 //            }
         
-        var ref: DocumentReference? = nil
-        ref = db.collection("channels").addDocument(data: [
-            "state": "Channel established.",
-            "date": Timestamp(date: Date()),
-            "xCoord": "49.223968",
-            "yCoord": "-122.619272",
-            "emotionalState": "",
-            "physicalActivity": ""
-        ]) { err in
-            if let err = err {
-                print("Error adding document: \(err)")
-            } else {
-                print("Document added with ID: \(ref!.documentID)")
-            }
-        }
         
-        id = String(ref!.documentID)
         
-        print(id)
+//        var ref: DocumentReference? = nil
+//        ref = db.collection("channels").addDocument(data: [
+//            "state": "Channel established.",
+//            "date": Timestamp(date: Date()),
+//            "xCoord": "49.223968",
+//            "yCoord": "-122.619272",
+//            "emotionalState": "",
+//            "physicalActivity": ""
+//        ]) { err in
+//            if let err = err {
+//                print("Error adding document: \(err)")
+//            } else {
+//                print("Document added with ID: \(ref!.documentID)")
+//            }
+//        }
+//
+//        id = String(ref!.documentID)
+//
+//        print(id)
+        
+        
     
         
 //        db.collection("children").getDocuments() { (querySnapshot, err) in

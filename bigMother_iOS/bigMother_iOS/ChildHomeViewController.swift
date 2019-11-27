@@ -10,10 +10,26 @@ import UIKit
 
 class ChildHomeViewController: UITabBarController {
     
+
+    
     var childID : String = ""
 
+    @IBOutlet weak var image: UIImageView!
+    
+    @IBOutlet weak var reqLabel: UILabel!
+    
+    @IBOutlet weak var btn: UIButton!
+    
+    @IBOutlet weak var noReqLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        reqLabel.isHidden = true
+        btn.isHidden = true
+        image.isHidden = true
+        
+        
 
         // Do any additional setup after loading the view.
     }
