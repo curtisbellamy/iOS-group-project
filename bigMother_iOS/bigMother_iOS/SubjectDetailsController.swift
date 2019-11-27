@@ -9,17 +9,29 @@
 import UIKit
 
 class SubjectDetailsViewController: UIViewController {
-
+    
+    var subjectName : String = ""
+    
     @IBOutlet weak var titleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        titleLabel.text = subjects[myIndex]
+        titleLabel.text = subjectName
         
         
         // Do any additional setup after loading the view.
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! LastUpdateViewController
+        destination.subjectName = subjectName
+    }
+    
+    @IBAction func lastUpdate(_ sender: Any) {
+        performSegue(withIdentifier: "lastUpdate", sender: nil)
+    }
+    
+    
     /*
     // MARK: - Navigation
 

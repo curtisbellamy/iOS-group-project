@@ -61,13 +61,26 @@ class LoginViewController: UIViewController {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    //print("\(document.documentID) => \(document.data())")
                     if (document.documentID == username) {
                         if (document["password"] as! String == password) {
                             
                             self.ID = username
-                            let children = document.data()["children"]! as! [Any]
-                            self.childArray = children as! [String]
+                            if let children = document.data()["children"] {
+                                self.childArray = children as! [String]
+
+                            }
+                            
+//                            if let children = document.data()["children"]! as! [Any] {
+//                                                           self.childArray = children as! [String]
+//
+//                                                       }
+                            
+//                            if children.count == 0 {
+//                                //do nothing
+//                            } else {
+//                                self.childArray = children as! [String]
+//
+//                            }
 
                             self.performSegue(withIdentifier: "loginSegue",sender: self)
                             

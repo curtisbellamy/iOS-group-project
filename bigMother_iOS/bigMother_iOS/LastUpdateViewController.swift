@@ -13,12 +13,17 @@ import MapKit
 class LastUpdateViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet weak var subjectTitle: UILabel!
+    
     @IBOutlet weak var myMapView: MKMapView!
     
     private let locationManager = CLLocationManager()
     
+    var subjectName : String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        subjectTitle.text = subjectName
 
         // Do any additional setup after loading the view.
 //        subjectTitle.text = subjects[myIndex] + " Last Update"

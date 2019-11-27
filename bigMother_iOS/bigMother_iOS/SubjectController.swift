@@ -15,11 +15,15 @@ class SubjectViewController: UITableViewController {
     
     var parentID : String = ""
         
+    @IBOutlet weak var titleLabel: UILabel!
+    
     var db:Firestore!
     
     var subjects : [String] = []
     
     //var subjects : [String] = ["Curtis", "Aidan", "Bella", "Francis"]
+    
+    var subjectChosen : String = ""
 
 
 
@@ -33,22 +37,32 @@ class SubjectViewController: UITableViewController {
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
         
-        var docRef = db.collection("parents").document(parentID)
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let children = document.data()!["children"]! as! [Any]
-                for child in children {
-                    self.subjects.append(child as! String)
-                }
-       
-            } else {
-                print("Document does not exist")
-            }
+        if subjects.count == 0 {
+            titleLabel.text = "No subjects yet."
         }
+        
+//        var docRef = db.collection("parents").document(parentID)
+//        docRef.getDocument { (document, error) in
+//            if let document = document, document.exists {
+//
+//                let children = document.data()!["children"]! as! [Any]
+//                for child in children {
+//                    self.subjects.append(child as! String)
+//                }
+//
+//            } else {
+//                print("Document does not exist")
+//            }
+//        }
     
     
         
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! SubjectDetailsViewController
+        destination.subjectName = subjectChosen
     }
 
 
@@ -66,6 +80,7 @@ class SubjectViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         myIndex = indexPath.row
+        subjectChosen = subjects[indexPath.row]
         performSegue(withIdentifier: "segue", sender: self)
     }
 
