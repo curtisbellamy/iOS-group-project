@@ -15,6 +15,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginStatusLabel: UILabel!
     
+    var ID : String = ""
+    
+    var childArray : [String] = []
+
+    
     var db:Firestore!
     
     override func viewDidLoad() {
@@ -56,9 +61,16 @@ class LoginViewController: UIViewController {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    //print("\(document.documentID) => \(document.data())")
                     if (document.documentID == username) {
                         if (document["password"] as! String == password) {
+                            
+                            self.ID = username
+                            if let children = document.data()["children"] {
+                                self.childArray = children as! [String]
+
+                            }
+
+
                             self.performSegue(withIdentifier: "loginSegue",sender: self)
                             
                             self.loginStatusLabel.textColor = .green
@@ -70,7 +82,56 @@ class LoginViewController: UIViewController {
             }
         }
         
+        db.collection("children").getDocuments() { (querySnapshot, err) in
+                  if let err = err {
+                      print("Error getting documents: \(err)")
+                  } else {
+                      for document in querySnapshot!.documents {
+                          //print("\(document.documentID) => \(document.data())")
+                          if (document.documentID == username) {
+                              if (document["password"] as! String == password) {
+                                self.ID = username
+                                self.performSegue(withIdentifier: "childRoute",sender: self)
+                                  
+                                self.loginStatusLabel.textColor = .green
+                                self.loginStatusLabel.text = "Logged in successfully!"
+                                  
+                              }
+                          }
+                      }
+                  }
+              }
         
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "childRoute" {
+            
+            let barViewControllers = segue.destination as! UITabBarController
+            let nav = barViewControllers.viewControllers![1] as! UINavigationController
+            let destinationViewController2 = barViewControllers.viewControllers![0] as! ChildHomeViewController
+            let destinationViewController = nav.viewControllers[0] as! ChildSettingsTableViewController
+            destinationViewController.childID = ID
+            destinationViewController2.childID = ID
+            
+        } else if segue.identifier == "loginSegue" {
+            
+            let barViewControllers = segue.destination as! UITabBarController
+            let nav = barViewControllers.viewControllers![0] as! UINavigationController
+            let destinationViewController = nav.viewControllers[0] as! SubjectViewController
+            destinationViewController.parentID = ID
+            destinationViewController.subjects = childArray
+            
+            let nav2 = barViewControllers.viewControllers![2] as! UINavigationController
+            let destinationViewController2 = nav2.viewControllers[0] as! SettingsTableViewController
+            destinationViewController2.subjects = childArray
+            destinationViewController2.parentID = ID
+
+
+        }
+
     }
     
 

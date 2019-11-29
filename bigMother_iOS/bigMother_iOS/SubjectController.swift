@@ -7,15 +7,103 @@
 //
 
 import UIKit
-var subjects = ["Curtis", "Bella", "Aiden", "Francis"]
+import FirebaseFirestore
+
+
 var myIndex = 0
 class SubjectViewController: UITableViewController {
+    
+    var parentID : String = ""
+        
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    var db:Firestore!
+    
+    var subjects : [String] = []
+    
+    //var subjects : [String] = ["Curtis", "Aidan", "Bella", "Francis"]
+    
+    var subjectChosen : String = ""
+
+
+
     // MARK: - Table view data source
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView()
+        let settings = FirestoreSettings()
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
+        
+        if subjects.count == 0 {
+            titleLabel.text = "No subjects yet."
+        }
+        
+        buildArray()
+        self.tableView.reloadData()
+        
+//        var docRef = db.collection("parents").document(parentID)
+//        docRef.getDocument { (document, error) in
+//            if let document = document, document.exists {
+//
+//                let children = document.data()!["children"]! as! [Any]
+//                for child in children {
+//                    self.subjects.append(child as! String)
+//                }
+//
+//            } else {
+//                print("Document does not exist")
+//            }
+//        }
+    
+    
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(animated)
+
+           buildArray()
+                             
+           self.tableView.reloadData()
+
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        buildArray()
+                          
+        self.tableView.reloadData()
+
+
+    }
+    
+    
+    func buildArray() {
+          let docRef = db.collection("parents").document(parentID)
+
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+
+                  if let children = document.data()?["children"] {
+                        self.subjects = children as! [String]
+
+                    }
+                } else {
+                    print("Document does not exist")
+                }
+            }
+      }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! SubjectDetailsViewController
+        destination.subjectName = subjectChosen
+        destination.parentID = parentID
     }
 
 
@@ -23,16 +111,17 @@ class SubjectViewController: UITableViewController {
         return subjects.count
     }
 
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = subjects[indexPath.row]
 
         return cell
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         myIndex = indexPath.row
+        subjectChosen = subjects[indexPath.row]
         performSegue(withIdentifier: "segue", sender: self)
     }
 

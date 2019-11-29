@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		640CC309233D98690042BE77 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640CC308233D98690042BE77 /* SettingsTableViewController.swift */; };
+		6411BD4C238D04F200FDF474 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6411BD4B238D04F200FDF474 /* QRScannerViewController.swift */; };
 		648B2BF9233DAC4D009265B1 /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648B2BF8233DAC4D009265B1 /* QRViewController.swift */; };
 		64CE01B923368FEE00988039 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CE01B823368FEE00988039 /* AppDelegate.swift */; };
 		64CE01BB23368FEE00988039 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CE01BA23368FEE00988039 /* SceneDelegate.swift */; };
@@ -15,7 +16,12 @@
 		64CE01C223368FEE00988039 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64CE01C023368FEE00988039 /* Main.storyboard */; };
 		64CE01C423368FEF00988039 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64CE01C323368FEF00988039 /* Assets.xcassets */; };
 		64CE01C723368FEF00988039 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64CE01C523368FEF00988039 /* LaunchScreen.storyboard */; };
+		64D1F09E23909B0200202309 /* EnterParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D1F09D23909B0100202309 /* EnterParentViewController.swift */; };
+		64D1F0A02390E8E300202309 /* SendUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D1F09F2390E8E300202309 /* SendUpdateViewController.swift */; };
 		64F0B1CB233C699A0025FE76 /* SubjectOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F0B1CA233C699A0025FE76 /* SubjectOptionsViewController.swift */; };
+		64F5B339238E4D5D00881B46 /* ChildSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F5B338238E4D5D00881B46 /* ChildSettingsTableViewController.swift */; };
+		64F5B33B238E51CB00881B46 /* ChildQRDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F5B33A238E51CB00881B46 /* ChildQRDisplayViewController.swift */; };
+		64F5B33D238E5AD400881B46 /* ChildHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F5B33C238E5AD400881B46 /* ChildHomeViewController.swift */; };
 		A40F076F233B365200CEACDF /* SubjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40F076E233B365200CEACDF /* SubjectController.swift */; };
 		A40F0771233B374600CEACDF /* SubjectDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40F0770233B374600CEACDF /* SubjectDetailsController.swift */; };
 		CD32FCFE236CA238008B9126 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD32FCFD236CA238008B9126 /* GoogleService-Info.plist */; };
@@ -28,6 +34,7 @@
 /* Begin PBXFileReference section */
 		5EAC1C38B72E01C8BAACCD0F /* Pods_bigMother_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bigMother_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		640CC308233D98690042BE77 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		6411BD4B238D04F200FDF474 /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		648B2BF8233DAC4D009265B1 /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
 		64CE01B523368FEE00988039 /* bigMother.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bigMother.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64CE01B823368FEE00988039 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -37,7 +44,12 @@
 		64CE01C323368FEF00988039 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64CE01C623368FEF00988039 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		64CE01C823368FEF00988039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64D1F09D23909B0100202309 /* EnterParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterParentViewController.swift; sourceTree = "<group>"; };
+		64D1F09F2390E8E300202309 /* SendUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendUpdateViewController.swift; sourceTree = "<group>"; };
 		64F0B1CA233C699A0025FE76 /* SubjectOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectOptionsViewController.swift; sourceTree = "<group>"; };
+		64F5B338238E4D5D00881B46 /* ChildSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildSettingsTableViewController.swift; sourceTree = "<group>"; };
+		64F5B33A238E51CB00881B46 /* ChildQRDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildQRDisplayViewController.swift; sourceTree = "<group>"; };
+		64F5B33C238E5AD400881B46 /* ChildHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildHomeViewController.swift; sourceTree = "<group>"; };
 		A24A0D97236C9F08000BFE40 /* bigMother.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = bigMother.entitlements; sourceTree = "<group>"; };
 		A40F076E233B365200CEACDF /* SubjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectController.swift; sourceTree = "<group>"; };
 		A40F0770233B374600CEACDF /* SubjectDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectDetailsController.swift; sourceTree = "<group>"; };
@@ -99,6 +111,12 @@
 				648B2BF8233DAC4D009265B1 /* QRViewController.swift */,
 				E8CB56C0233DBBB80067D266 /* LastUpdateViewController.swift */,
 				CD32FCFD236CA238008B9126 /* GoogleService-Info.plist */,
+				6411BD4B238D04F200FDF474 /* QRScannerViewController.swift */,
+				64F5B338238E4D5D00881B46 /* ChildSettingsTableViewController.swift */,
+				64F5B33A238E51CB00881B46 /* ChildQRDisplayViewController.swift */,
+				64F5B33C238E5AD400881B46 /* ChildHomeViewController.swift */,
+				64D1F09D23909B0100202309 /* EnterParentViewController.swift */,
+				64D1F09F2390E8E300202309 /* SendUpdateViewController.swift */,
 			);
 			path = bigMother_iOS;
 			sourceTree = "<group>";
@@ -236,17 +254,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64F5B339238E4D5D00881B46 /* ChildSettingsTableViewController.swift in Sources */,
+				64D1F09E23909B0200202309 /* EnterParentViewController.swift in Sources */,
 				DB4B4FB12387CE9000B4C060 /* SignUpViewController.swift in Sources */,
 				64F0B1CB233C699A0025FE76 /* SubjectOptionsViewController.swift in Sources */,
 				64CE01BF23368FEE00988039 /* SecondViewController.swift in Sources */,
 				A40F076F233B365200CEACDF /* SubjectController.swift in Sources */,
 				A40F0771233B374600CEACDF /* SubjectDetailsController.swift in Sources */,
 				DBA5C7EF233D9E940023F004 /* LoginViewController.swift in Sources */,
+				64F5B33B238E51CB00881B46 /* ChildQRDisplayViewController.swift in Sources */,
 				648B2BF9233DAC4D009265B1 /* QRViewController.swift in Sources */,
 				64CE01B923368FEE00988039 /* AppDelegate.swift in Sources */,
+				6411BD4C238D04F200FDF474 /* QRScannerViewController.swift in Sources */,
+				64F5B33D238E5AD400881B46 /* ChildHomeViewController.swift in Sources */,
 				64CE01BB23368FEE00988039 /* SceneDelegate.swift in Sources */,
 				640CC309233D98690042BE77 /* SettingsTableViewController.swift in Sources */,
 				E8CB56C1233DBBB80067D266 /* LastUpdateViewController.swift in Sources */,
+				64D1F0A02390E8E300202309 /* SendUpdateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,7 +424,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ca.bcit.bigMother;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.bcit.comp4977c;
 				PRODUCT_NAME = bigMother;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -421,7 +445,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ca.bcit.bigMother;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.bcit.comp4977c;
 				PRODUCT_NAME = bigMother;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
