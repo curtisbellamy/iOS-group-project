@@ -10,7 +10,7 @@ import UIKit
 
 class ChildSettingsTableViewController: UITableViewController {
     
-    var options = ["Show QR Code"]
+    var options = ["Add Parent"]
     
     var childID : String = ""
 
@@ -20,7 +20,7 @@ class ChildSettingsTableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         
         print(childID)
-
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -67,15 +67,20 @@ class ChildSettingsTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let nextViewController = segue.destination as? ChildQRDisplayViewController {
-            nextViewController.dataString = childID
-        }
+//        if let nextViewController = segue.destination as? ChildQRDisplayViewController {
+//            nextViewController.dataString = childID
+//        }
+        if let nextViewController = segue.destination as? EnterParentViewController {
+                  nextViewController.childID = childID
+              }
     }
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 && indexPath.row == 0 {
-                performSegue(withIdentifier: "showQR", sender: self)
+//                performSegue(withIdentifier: "showQR", sender: self)
+                performSegue(withIdentifier: "enterParent", sender: self)
+
 
         }
     }

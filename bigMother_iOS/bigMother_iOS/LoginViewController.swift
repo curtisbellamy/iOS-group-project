@@ -111,8 +111,10 @@ class LoginViewController: UIViewController {
             
             let barViewControllers = segue.destination as! UITabBarController
             let nav = barViewControllers.viewControllers![1] as! UINavigationController
+            let destinationViewController2 = barViewControllers.viewControllers![0] as! ChildHomeViewController
             let destinationViewController = nav.viewControllers[0] as! ChildSettingsTableViewController
             destinationViewController.childID = ID
+            destinationViewController2.childID = ID
             
         } else if segue.identifier == "loginSegue" {
             

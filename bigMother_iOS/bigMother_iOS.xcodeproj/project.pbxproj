@@ -16,6 +16,8 @@
 		64CE01C223368FEE00988039 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64CE01C023368FEE00988039 /* Main.storyboard */; };
 		64CE01C423368FEF00988039 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64CE01C323368FEF00988039 /* Assets.xcassets */; };
 		64CE01C723368FEF00988039 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64CE01C523368FEF00988039 /* LaunchScreen.storyboard */; };
+		64D1F09E23909B0200202309 /* EnterParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D1F09D23909B0100202309 /* EnterParentViewController.swift */; };
+		64D1F0A02390E8E300202309 /* SendUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D1F09F2390E8E300202309 /* SendUpdateViewController.swift */; };
 		64F0B1CB233C699A0025FE76 /* SubjectOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F0B1CA233C699A0025FE76 /* SubjectOptionsViewController.swift */; };
 		64F5B339238E4D5D00881B46 /* ChildSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F5B338238E4D5D00881B46 /* ChildSettingsTableViewController.swift */; };
 		64F5B33B238E51CB00881B46 /* ChildQRDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F5B33A238E51CB00881B46 /* ChildQRDisplayViewController.swift */; };
@@ -42,6 +44,8 @@
 		64CE01C323368FEF00988039 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64CE01C623368FEF00988039 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		64CE01C823368FEF00988039 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64D1F09D23909B0100202309 /* EnterParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterParentViewController.swift; sourceTree = "<group>"; };
+		64D1F09F2390E8E300202309 /* SendUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendUpdateViewController.swift; sourceTree = "<group>"; };
 		64F0B1CA233C699A0025FE76 /* SubjectOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectOptionsViewController.swift; sourceTree = "<group>"; };
 		64F5B338238E4D5D00881B46 /* ChildSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildSettingsTableViewController.swift; sourceTree = "<group>"; };
 		64F5B33A238E51CB00881B46 /* ChildQRDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildQRDisplayViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 				64F5B338238E4D5D00881B46 /* ChildSettingsTableViewController.swift */,
 				64F5B33A238E51CB00881B46 /* ChildQRDisplayViewController.swift */,
 				64F5B33C238E5AD400881B46 /* ChildHomeViewController.swift */,
+				64D1F09D23909B0100202309 /* EnterParentViewController.swift */,
+				64D1F09F2390E8E300202309 /* SendUpdateViewController.swift */,
 			);
 			path = bigMother_iOS;
 			sourceTree = "<group>";
@@ -249,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64F5B339238E4D5D00881B46 /* ChildSettingsTableViewController.swift in Sources */,
+				64D1F09E23909B0200202309 /* EnterParentViewController.swift in Sources */,
 				DB4B4FB12387CE9000B4C060 /* SignUpViewController.swift in Sources */,
 				64F0B1CB233C699A0025FE76 /* SubjectOptionsViewController.swift in Sources */,
 				64CE01BF23368FEE00988039 /* SecondViewController.swift in Sources */,
@@ -263,6 +270,7 @@
 				64CE01BB23368FEE00988039 /* SceneDelegate.swift in Sources */,
 				640CC309233D98690042BE77 /* SettingsTableViewController.swift in Sources */,
 				E8CB56C1233DBBB80067D266 /* LastUpdateViewController.swift in Sources */,
+				64D1F0A02390E8E300202309 /* SendUpdateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
