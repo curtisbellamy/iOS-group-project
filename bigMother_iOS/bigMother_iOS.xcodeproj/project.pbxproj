@@ -22,6 +22,7 @@
 		64F5B339238E4D5D00881B46 /* ChildSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F5B338238E4D5D00881B46 /* ChildSettingsTableViewController.swift */; };
 		64F5B33B238E51CB00881B46 /* ChildQRDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F5B33A238E51CB00881B46 /* ChildQRDisplayViewController.swift */; };
 		64F5B33D238E5AD400881B46 /* ChildHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F5B33C238E5AD400881B46 /* ChildHomeViewController.swift */; };
+		A2068D992391F1A60030D00B /* UpdateHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2068D982391F1A60030D00B /* UpdateHistoryTableViewController.swift */; };
 		A40F076F233B365200CEACDF /* SubjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40F076E233B365200CEACDF /* SubjectController.swift */; };
 		A40F0771233B374600CEACDF /* SubjectDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40F0770233B374600CEACDF /* SubjectDetailsController.swift */; };
 		CD32FCFE236CA238008B9126 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD32FCFD236CA238008B9126 /* GoogleService-Info.plist */; };
@@ -50,6 +51,7 @@
 		64F5B338238E4D5D00881B46 /* ChildSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildSettingsTableViewController.swift; sourceTree = "<group>"; };
 		64F5B33A238E51CB00881B46 /* ChildQRDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildQRDisplayViewController.swift; sourceTree = "<group>"; };
 		64F5B33C238E5AD400881B46 /* ChildHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildHomeViewController.swift; sourceTree = "<group>"; };
+		A2068D982391F1A60030D00B /* UpdateHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateHistoryTableViewController.swift; sourceTree = "<group>"; };
 		A24A0D97236C9F08000BFE40 /* bigMother.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = bigMother.entitlements; sourceTree = "<group>"; };
 		A40F076E233B365200CEACDF /* SubjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectController.swift; sourceTree = "<group>"; };
 		A40F0770233B374600CEACDF /* SubjectDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectDetailsController.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				64F5B33C238E5AD400881B46 /* ChildHomeViewController.swift */,
 				64D1F09D23909B0100202309 /* EnterParentViewController.swift */,
 				64D1F09F2390E8E300202309 /* SendUpdateViewController.swift */,
+				A2068D982391F1A60030D00B /* UpdateHistoryTableViewController.swift */,
 			);
 			path = bigMother_iOS;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64F5B339238E4D5D00881B46 /* ChildSettingsTableViewController.swift in Sources */,
+				A2068D992391F1A60030D00B /* UpdateHistoryTableViewController.swift in Sources */,
 				64D1F09E23909B0200202309 /* EnterParentViewController.swift in Sources */,
 				DB4B4FB12387CE9000B4C060 /* SignUpViewController.swift in Sources */,
 				64F0B1CB233C699A0025FE76 /* SubjectOptionsViewController.swift in Sources */,

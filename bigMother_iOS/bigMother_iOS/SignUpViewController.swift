@@ -145,6 +145,11 @@ class SignUpViewController: UIViewController {
         
     }
     
+    
+    @IBAction func backToLogIn(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 
     /*
     // MARK: - Navigation

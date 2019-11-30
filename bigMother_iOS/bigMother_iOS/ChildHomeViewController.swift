@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseFirestore
+import UserNotifications
 
 class ChildHomeViewController: UIViewController {
     
@@ -36,8 +37,37 @@ class ChildHomeViewController: UIViewController {
         btn.isHidden = true
         image.isHidden = true
         noReqLabel.isHidden = false
-
         
+        
+        // set timer for 5 second interval to check db for pending requests
+        // when request found, send notification
+        
+        
+        // notifications
+        
+        let center = UNUserNotificationCenter.current()
+        
+        center.requestAuthorization(options: [.alert, .sound])
+        { (granted, error) in
+            
+        }
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Hey"
+        content.body = "Look at me"
+
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10,
+        repeats: false)
+        
+        let uuidString = UUID().uuidString
+        let request =  UNNotificationRequest(identifier: uuidString, content:
+            content, trigger: trigger)
+        
+        center.add(request) { (error) in
+            
+        }
+        
+        // end notifs
 
         // Do any additional setup after loading the view.
     }
@@ -49,12 +79,18 @@ class ChildHomeViewController: UIViewController {
         btn.isHidden = true
         image.isHidden = true
         
+        noReqLabel.isHidden = false
+        
         determineParent()
+        
+        
     }
+    
     
     private func replace(str: String) -> String{
            return str.replacingOccurrences(of: ".", with: "_")
     }
+    
     
     
     private func determineParent() {

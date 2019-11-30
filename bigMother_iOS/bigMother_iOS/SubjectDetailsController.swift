@@ -76,9 +76,49 @@ class SubjectDetailsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! LastUpdateViewController
-        destination.subjectName = subjectName
-        destination.parentID = parentID
+        
+        if segue.identifier == "lastUpdate" {
+            let destination = segue.destination as! LastUpdateViewController
+            destination.subjectName = subjectName
+            destination.parentID = parentID
+        }
+        
+        if segue.identifier == "updateHistory" {
+            
+            //finish!!!!
+            
+            let docRef = self.db.collection("channels").document(parentID)
+
+            docRef.getDocument { (document, error) in
+                
+                    if let document = document, document.exists {
+                        
+                        let thread = document.data()![self.replace(str: self.subjectName)] as? [Any]
+                        
+                        var lastMsg = thread![thread!.endIndex - 1] as! NSDictionary
+                        
+                        let tempState = lastMsg.value(forKey: "state") as? String
+                        
+                        if tempState != "established" || thread!.count <= 2 {
+                            self.updateHistoryBtn.isEnabled = true
+                            self.lastUpdateBtn.isEnabled = true
+                        }
+
+                
+                    
+
+                } else {
+                    print("Document does not exist")
+                }
+            }
+            
+            
+            
+            let destination = segue.destination as! UpdateHistoryTableViewController
+            destination.parentID = self.parentID
+            destination.childID = self.subjectName
+        }
+    
     }
     
     @IBAction func lastUpdate(_ sender: Any) {
