@@ -209,15 +209,18 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subjects" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Vq-sp-hwS" userLabel="Subjects">
-                                    <rect key="frame" x="99" y="8" width="216" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subjects" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Vq-sp-hwS" userLabel="Subjects">
+                                    <rect key="frame" x="173.66666666666666" y="8" width="66.666666666666657" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="8Vq-sp-hwS" firstAttribute="top" secondItem="6Ig-T0-IPB" secondAttribute="topMargin" id="QnQ-zE-G8U"/>
+                                <constraint firstItem="8Vq-sp-hwS" firstAttribute="centerX" secondItem="6Ig-T0-IPB" secondAttribute="centerX" id="wLB-87-2Us"/>
+                            </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="fjB-pq-x8U">
@@ -403,6 +406,7 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="Fxu-eb-ZRV">
                                 <rect key="frame" x="92" y="656" width="230" height="30"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="226" id="jmM-P4-5V9"/>
                                     <constraint firstAttribute="height" constant="29" id="yAr-YM-EtN"/>
                                 </constraints>
                                 <connections>
@@ -420,12 +424,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ECa-ho-YOe" firstAttribute="centerY" secondItem="akz-7I-xKN" secondAttribute="centerY" id="27r-Tl-Si6"/>
-                            <constraint firstItem="Fxu-eb-ZRV" firstAttribute="leading" secondItem="9E4-Sh-Dfi" secondAttribute="leading" constant="94" id="7Wt-fn-mc0"/>
+                            <constraint firstItem="Fxu-eb-ZRV" firstAttribute="top" secondItem="ECa-ho-YOe" secondAttribute="bottom" constant="135" id="6VC-ce-v5L"/>
                             <constraint firstItem="ECa-ho-YOe" firstAttribute="centerX" secondItem="akz-7I-xKN" secondAttribute="centerX" id="Ohb-ZG-6jJ"/>
                             <constraint firstItem="ECa-ho-YOe" firstAttribute="centerY" secondItem="akz-7I-xKN" secondAttribute="centerY" id="TAw-iD-bnh"/>
                             <constraint firstItem="ECa-ho-YOe" firstAttribute="centerX" secondItem="akz-7I-xKN" secondAttribute="centerX" id="Zkc-mP-erB"/>
-                            <constraint firstItem="9E4-Sh-Dfi" firstAttribute="bottom" secondItem="Fxu-eb-ZRV" secondAttribute="bottom" constant="123" id="ifO-y8-5DC"/>
                             <constraint firstItem="Fxu-eb-ZRV" firstAttribute="centerX" secondItem="ECa-ho-YOe" secondAttribute="centerX" id="jVk-fk-2al"/>
+                            <constraint firstItem="Fxu-eb-ZRV" firstAttribute="centerX" secondItem="9E4-Sh-Dfi" secondAttribute="centerX" id="xRn-Xa-ywf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9E4-Sh-Dfi"/>
                     </view>
