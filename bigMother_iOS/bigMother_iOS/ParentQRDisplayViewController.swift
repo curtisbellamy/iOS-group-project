@@ -12,7 +12,7 @@ class ParentQRDisplayViewController: UIViewController {
     
     var qrcodeImage : CIImage!
     
-    @IBOutlet weak var QRcode: UIImageView!
+    @IBOutlet weak var imgQRcode : UIImageView!
     
     @IBOutlet weak var slider: UISlider!
     
@@ -29,7 +29,7 @@ class ParentQRDisplayViewController: UIViewController {
     
 
     @IBAction func changeScale(_ sender: Any) {
-        QRcode.transform = CGAffineTransform(scaleX: CGFloat(slider.value), y: CGFloat(slider.value))
+        imgQRcode.transform = CGAffineTransform(scaleX: CGFloat(slider.value), y: CGFloat(slider.value))
     }
     
     func generateQRCode() {
@@ -42,8 +42,19 @@ class ParentQRDisplayViewController: UIViewController {
         
         qrcodeImage = filter?.outputImage
         
-        QRcode.image = UIImage(ciImage: qrcodeImage)
+        displayQRCodeImage()
         
+//        imgQRcode.image = UIImage(ciImage: qrcodeImage)
+        
+    }
+    
+    func displayQRCodeImage() {
+        let scaleX = imgQRcode.frame.size.height / qrcodeImage.extent.size.width
+        let scaleY = imgQRcode.frame.size.height / qrcodeImage.extent.size.height
+        
+        let transformedImage = qrcodeImage.transformed(by: CGAffineTransform(scaleX: scaleX, y: scaleY))
+        
+        imgQRcode.image = UIImage(ciImage: transformedImage)
     }
     
     

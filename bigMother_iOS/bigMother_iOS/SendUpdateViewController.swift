@@ -29,6 +29,9 @@ class SendUpdateViewController: UIViewController {
     var parentID : String = ""
     
     var childID : String = ""
+    
+    var currentLocation: CLLocation!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +42,7 @@ class SendUpdateViewController: UIViewController {
         
         locManager.requestWhenInUseAuthorization()
         
-        var currentLocation: CLLocation!
+//        var currentLocation: CLLocation!
 
         if( CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
                 CLLocationManager.authorizationStatus() ==  .authorizedAlways){
@@ -48,8 +51,8 @@ class SendUpdateViewController: UIViewController {
 
         }
         
-        latitude = currentLocation.coordinate.latitude
-        longitude = currentLocation.coordinate.longitude
+//        latitude = currentLocation.coordinate.latitude
+//        longitude = currentLocation.coordinate.longitude
         
 
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
@@ -57,11 +60,18 @@ class SendUpdateViewController: UIViewController {
         view.addGestureRecognizer(tap)
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        @objc func dismissKeyboard() {
-            //Causes the view (or one of its embedded text fields) to resign the first responder status.
-            view.endEditing(true)
-        }
+        latitude = currentLocation.coordinate.latitude
+        longitude = currentLocation.coordinate.longitude
+    }
+        
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
     
     @IBAction func send(_ sender: Any) {
         

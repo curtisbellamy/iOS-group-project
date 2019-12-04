@@ -23,7 +23,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>BigMother is requesting to use the camera.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>wew</string>
+	<string></string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

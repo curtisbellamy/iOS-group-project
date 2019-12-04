@@ -84,9 +84,12 @@ class LastUpdateViewController: UIViewController, CLLocationManagerDelegate, MKM
 
                                 let emotionVal = lastMsg.value(forKey: "emotionalState")
 
-                                let xCoord = lastMsg.value(forKey: "lat")
+                                let latitude = lastMsg.value(forKey: "lat")
 
-                                let yCoord = lastMsg.value(forKey: "long")
+                                let longitude = lastMsg.value(forKey: "long")
+                                
+                                
+                                print("Latitude: \(latitude)\nLongitude: \(longitude)")
                                 
                                 
                                 

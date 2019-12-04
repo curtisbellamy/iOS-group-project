@@ -19,6 +19,8 @@ class SubjectDetailsViewController: UIViewController {
     
     @IBOutlet weak var updateHistoryBtn: UIButton!
     
+    @IBOutlet weak var reqUpdateBtn: UIButton!
+    
     @IBOutlet weak var titleLabel: UILabel!
     
     var db:Firestore!
@@ -69,6 +71,46 @@ class SubjectDetailsViewController: UIViewController {
             }
         }
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        let docRef = self.db.collection("channels").document(parentID)
+
+        docRef.getDocument { (document, error) in
+            
+                if let document = document, document.exists {
+                    
+                    let thread = document.data()![self.replace(str: self.subjectName)] as? [Any]
+                    
+                    var lastMsg = thread![thread!.endIndex - 1] as! NSDictionary
+                    
+                    let tempState = lastMsg.value(forKey: "state") as? String
+                    
+                    if tempState != "established" && thread!.count <= 2 {
+                        self.updateHistoryBtn.isEnabled = false
+                        self.lastUpdateBtn.isEnabled = false
+                    }
+                    
+                    if tempState == "established" {
+                        self.reqUpdateBtn.isEnabled = true
+                        self.updateHistoryBtn.isEnabled = false
+                        self.lastUpdateBtn.isEnabled = false
+                    }
+                    
+                    if tempState == "requested" {
+                        self.reqUpdateBtn.isEnabled = false
+                    }
+
+            
+                
+
+            } else {
+                print("Document does not exist")
+            }
+        }
     }
     
     private func replace(str: String) -> String{
@@ -133,7 +175,7 @@ class SubjectDetailsViewController: UIViewController {
         
         document2.getDocument { (document2, error) in
           if let document2 = document2, document2.exists {
-            var children = document2.data()!["child1@gmail_com"]! as! [Any]
+            var children = document2.data()![self.subjectName]! as! [Any]
             children.append(state!)
             
             self.setData(array: children)

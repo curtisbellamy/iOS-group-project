@@ -45,27 +45,27 @@ class ChildHomeViewController: UIViewController {
         
         // notifications
         
-        let center = UNUserNotificationCenter.current()
-        
-        center.requestAuthorization(options: [.alert, .sound])
-        { (granted, error) in
-            
-        }
-        
-        let content = UNMutableNotificationContent()
-        content.title = "Hey"
-        content.body = "Look at me"
-
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10,
-        repeats: false)
-        
-        let uuidString = UUID().uuidString
-        let request =  UNNotificationRequest(identifier: uuidString, content:
-            content, trigger: trigger)
-        
-        center.add(request) { (error) in
-            
-        }
+//        let center = UNUserNotificationCenter.current()
+//
+//        center.requestAuthorization(options: [.alert, .sound])
+//        { (granted, error) in
+//
+//        }
+//
+//        let content = UNMutableNotificationContent()
+//        content.title = "Hey"
+//        content.body = "Look at me"
+//
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10,
+//        repeats: false)
+//
+//        let uuidString = UUID().uuidString
+//        let request =  UNNotificationRequest(identifier: uuidString, content:
+//            content, trigger: trigger)
+//
+//        center.add(request) { (error) in
+//
+//        }
         
         // end notifs
 

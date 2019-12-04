@@ -76,6 +76,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="lastUpdateBtn" destination="Ubc-Vn-nT2" id="Xwa-rH-Ftj"/>
+                        <outlet property="reqUpdateBtn" destination="XTm-mn-u3m" id="q8e-NJ-yez"/>
                         <outlet property="titleLabel" destination="3AA-sq-PEt" id="cjP-3s-ZkQ"/>
                         <outlet property="updateHistoryBtn" destination="C5y-YJ-8KH" id="tAJ-dw-svF"/>
                         <segue destination="zVQ-mz-zSL" kind="show" identifier="lastUpdate" id="AZY-ET-Dbe"/>
@@ -434,7 +435,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="KWs-ms-v93"/>
                     <connections>
-                        <outlet property="QRcode" destination="ECa-ho-YOe" id="1AY-tn-9J8"/>
+                        <outlet property="imgQRcode" destination="ECa-ho-YOe" id="hKd-lb-1nG"/>
                         <outlet property="slider" destination="Fxu-eb-ZRV" id="cfY-uI-49i"/>
                     </connections>
                 </viewController>

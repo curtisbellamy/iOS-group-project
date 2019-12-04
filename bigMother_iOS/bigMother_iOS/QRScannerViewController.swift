@@ -94,7 +94,7 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
                       
                       
                       
-                        let alert = UIAlertController(title: "Success!", message: "\(object.stringValue) succesfully added!", preferredStyle: .alert)
+                        let alert = UIAlertController(title: "Success!", message: "\((object.stringValue)!) succesfully added!", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (nil) in
                             UIPasteboard.general.string = object.stringValue
                           
