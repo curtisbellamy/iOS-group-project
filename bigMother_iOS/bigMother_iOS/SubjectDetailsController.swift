@@ -15,6 +15,8 @@ class SubjectDetailsViewController: UIViewController {
     
     var parentID : String = ""
     
+    var history : [NSDictionary] = []
+    
     @IBOutlet weak var lastUpdateBtn: UIButton!
     
     @IBOutlet weak var updateHistoryBtn: UIButton!
@@ -71,7 +73,39 @@ class SubjectDetailsViewController: UIViewController {
             }
         }
         
+        generateHistory()
+        
     }
+    
+    @IBAction func updateHistory(_ sender: Any) {
+        performSegue(withIdentifier: "updateHistory", sender: nil)
+    }
+    
+    private func generateHistory() {
+        let docRef = self.db.collection("channels").document(parentID)
+        docRef.getDocument { (document, error) in
+                
+            if let document = document, document.exists {
+                
+                let thread = document.data()![self.replace(str: self.subjectName)] as? [NSDictionary]
+                                
+                for update in thread! {
+                    
+                    if update.value(forKey: "state") as? String == "received" {
+                        self.history.append(update)
+                    }
+                }
+
+                
+                    
+
+                } else {
+                    print("Document does not exist")
+                }
+            }
+
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -126,39 +160,11 @@ class SubjectDetailsViewController: UIViewController {
         }
         
         if segue.identifier == "updateHistory" {
-            
-            //finish!!!!
-            
-            let docRef = self.db.collection("channels").document(parentID)
 
-            docRef.getDocument { (document, error) in
-                
-                    if let document = document, document.exists {
-                        
-                        let thread = document.data()![self.replace(str: self.subjectName)] as? [Any]
-                        
-                        var lastMsg = thread![thread!.endIndex - 1] as! NSDictionary
-                        
-                        let tempState = lastMsg.value(forKey: "state") as? String
-                        
-                        if tempState != "established" || thread!.count <= 2 {
-                            self.updateHistoryBtn.isEnabled = true
-                            self.lastUpdateBtn.isEnabled = true
-                        }
-
-                
-                    
-
-                } else {
-                    print("Document does not exist")
-                }
-            }
-            
-            
-            
             let destination = segue.destination as! UpdateHistoryTableViewController
             destination.parentID = self.parentID
             destination.childID = self.subjectName
+            destination.data = self.history
         }
     
     }

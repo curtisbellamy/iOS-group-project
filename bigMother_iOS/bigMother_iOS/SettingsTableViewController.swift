@@ -15,7 +15,7 @@ class SettingsTableViewController: UITableViewController {
     var db:Firestore!
     
     var options = ["Enable Recurring Updates", "Recurring Settings", "Show My QR Code"]
-    var subjects : [String] = ["Curtis", "Aidan", "Bella", "Francis"]
+    var subjects : [String] = []
     var sections = ["Options", "Manage Subjects"]
     
     var sizes: [Int] = []
@@ -42,12 +42,6 @@ class SettingsTableViewController: UITableViewController {
         buildArray()
         self.tableView.reloadData()
 
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
     }
     
@@ -75,8 +69,6 @@ class SettingsTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        print("visited back")
-
         buildArray()
         let optionSize: Int = options.count;
         let subjectSize: Int = subjects.count;
@@ -85,7 +77,7 @@ class SettingsTableViewController: UITableViewController {
         
         self.tableView.reloadData()
         
-        viewDidLoad()
+//        viewDidLoad()
 
 
     }

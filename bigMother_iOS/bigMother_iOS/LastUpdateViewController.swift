@@ -31,6 +31,8 @@ class LastUpdateViewController: UIViewController, CLLocationManagerDelegate, MKM
     var parentID : String = ""
     
     var channelID = ""
+    
+    var recentUpdate : NSDictionary = [:]
 
     
     var db:Firestore!
@@ -56,12 +58,54 @@ class LastUpdateViewController: UIViewController, CLLocationManagerDelegate, MKM
         
     }
     
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        self.recentUpdate = [:]
+    }
+    
     private func replace(str: String) -> String{
         return str.replacingOccurrences(of: ".", with: "_")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if self.recentUpdate != [:] {
+            
+            let recentActivity = recentUpdate.value(forKey: "activity") as! String
+            let recentEmotion = recentUpdate.value(forKey: "emotionalState") as! String
+            let recentDate = recentUpdate.value(forKey: "date") as! String
+            
+            self.activityLabel.text = recentActivity
+            self.emotionLabel.text = recentEmotion
+            self.dateLabel.text = recentDate
+            
+            if recentEmotion == "Happy" || recentEmotion as? String == "Okay" {
+                self.emotionLabel.textColor = .green
+                                      
+            } else if recentEmotion as? String == "Anxious" || recentEmotion as? String == "Stressed" {
+                self.emotionLabel.textColor = .orange
+
+            } else if recentEmotion as? String == "Anxious" || recentEmotion as? String == "Stressed" {
+                self.emotionLabel.textColor = .red
+            }
+          
+            let recentActivityNum = Int(recentActivity)
+          
+            if recentActivityNum! < 1000 {
+                self.activityLabel.textColor = .red
+
+            } else if recentActivityNum! > 1000 && recentActivityNum! < 7000 {
+                self.activityLabel.textColor = .orange
+
+            } else if recentActivityNum! > 7000{
+                self.activityLabel.textColor = .green
+
+            }
+            
+        } else {
         
                     let docRef = self.db.collection("channels").document(parentID)
 
@@ -130,6 +174,7 @@ class LastUpdateViewController: UIViewController, CLLocationManagerDelegate, MKM
                             print("Document does not exist")
                         }
                     }
+        }
     }
     
     

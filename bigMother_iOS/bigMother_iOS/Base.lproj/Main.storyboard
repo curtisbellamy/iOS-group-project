@@ -51,6 +51,9 @@
                                         <rect key="frame" x="0.0" y="588.66666666666663" width="414" height="185.33333333333337"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <state key="normal" title="Update History"/>
+                                        <connections>
+                                            <action selector="updateHistory:" destination="mOa-66-fdV" eventType="touchUpInside" id="8RB-ig-gEs"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -80,22 +83,23 @@
                         <outlet property="titleLabel" destination="3AA-sq-PEt" id="cjP-3s-ZkQ"/>
                         <outlet property="updateHistoryBtn" destination="C5y-YJ-8KH" id="tAJ-dw-svF"/>
                         <segue destination="zVQ-mz-zSL" kind="show" identifier="lastUpdate" id="AZY-ET-Dbe"/>
+                        <segue destination="BEY-fq-R8x" kind="show" identifier="updateHistory" id="LB1-4Z-Fd0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xXG-9G-Owd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2282.608695652174" y="1316.5760869565217"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Update History Table View Controller-->
         <scene sceneID="oTA-6q-F54">
             <objects>
-                <tableViewController id="BEY-fq-R8x" sceneMemberID="viewController">
+                <tableViewController id="BEY-fq-R8x" customClass="UpdateHistoryTableViewController" customModule="bigMother" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ndO-4h-83Q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="aMI-DN-Xje">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="aMI-DN-Xje">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aMI-DN-Xje" id="w5e-by-QWr">
@@ -109,6 +113,10 @@
                             <outlet property="delegate" destination="BEY-fq-R8x" id="gVf-T1-1Vc"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="ZU2-bu-lKZ"/>
+                    <connections>
+                        <segue destination="zVQ-mz-zSL" kind="show" identifier="showPastUpdate" id="abv-o8-qua"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9b-EG-Il3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -769,8 +777,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOT-y0-VqO">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOT-y0-VqO">
                                 <rect key="frame" x="82" y="730" width="250" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Delete Subject">
                                     <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -793,13 +802,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.90869555709325722" green="0.90869555709325722" blue="0.90869555709325722" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="SOT-y0-VqO" firstAttribute="centerX" secondItem="VFB-AY-abC" secondAttribute="centerX" id="Puz-QZ-vsm"/>
-                            <constraint firstItem="SOT-y0-VqO" firstAttribute="leading" secondItem="VFB-AY-abC" secondAttribute="leading" constant="82" id="cRY-TR-cfj"/>
-                            <constraint firstItem="VFB-AY-abC" firstAttribute="bottom" secondItem="SOT-y0-VqO" secondAttribute="bottom" constant="37" id="cri-fC-3iq"/>
                             <constraint firstItem="VFB-AY-abC" firstAttribute="trailing" secondItem="pgH-A1-vzt" secondAttribute="trailing" constant="45" id="hNq-Ra-mMF"/>
                             <constraint firstItem="pgH-A1-vzt" firstAttribute="leading" secondItem="VFB-AY-abC" secondAttribute="leading" constant="45" id="kTm-vC-sXN"/>
                             <constraint firstItem="pgH-A1-vzt" firstAttribute="top" secondItem="VFB-AY-abC" secondAttribute="top" constant="20" id="nQm-Oo-Iuy"/>
-                            <constraint firstItem="SOT-y0-VqO" firstAttribute="top" secondItem="pgH-A1-vzt" secondAttribute="bottom" constant="685" id="zpC-hZ-hSI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VFB-AY-abC"/>
                     </view>
@@ -1091,5 +1096,6 @@
         <segue reference="D1q-DQ-WTY"/>
         <segue reference="Kru-LN-Sy2"/>
         <segue reference="dPJ-Z6-upC"/>
+        <segue reference="abv-o8-qua"/>
     </inferredMetricsTieBreakers>
 </document>

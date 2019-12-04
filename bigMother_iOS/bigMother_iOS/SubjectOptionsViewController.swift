@@ -71,6 +71,17 @@ class SubjectOptionsViewController: UIViewController {
         ])
         
         
+        db.collection("channels").document(parentID).updateData([
+            name : FieldValue.delete(),
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Channel closed")
+            }
+        }
+        
+        
         let docRef = db.collection("parents").document(parentID)
 
         docRef.getDocument { (document, error) in
