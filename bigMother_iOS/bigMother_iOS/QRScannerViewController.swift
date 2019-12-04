@@ -8,14 +8,23 @@
 
 import UIKit
 import AVFoundation
+import FirebaseFirestore
 
 class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     var video = AVCaptureVideoPreviewLayer()
     
+    var db:Firestore!
+    
+    var childID : String = ""
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let settings = FirestoreSettings()
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
         
         // Do any additional setup after loading the view.
         
@@ -52,18 +61,49 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         session.startRunning()
     }
     
-    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!){
+    private func replace(str: String) -> String{
+        return str.replacingOccurrences(of: ".", with: "_")
+    }
+    
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         if metadataObjects != nil && metadataObjects.count != 0 {
             
             if let object = metadataObjects[0] as? AVMetadataMachineReadableCodeObject {
                 
                 if object.type == AVMetadataObject.ObjectType.qr {
-                    let alert = UIAlertController(title: "QR Code", message: object.stringValue, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Copy", style: .default, handler: { (nil) in
-                        UIPasteboard.general.string = object.stringValue
-                    }))
                     
-                    present(alert, animated: true, completion: nil)
+                    
+                        let parentID = object.stringValue
+
+                                  
+                        let document = db.collection("parents").document(parentID!)
+                        document.updateData([
+                          "children": FieldValue.arrayUnion([childID])
+                        ])
+                      
+                        print("child added.")
+                      
+                        let state = ["state": "established"] as? NSDictionary
+                      
+                        let document2 = db.collection("channels").document(parentID!)
+                        document2.setData([
+                            replace(str: childID) : FieldValue.arrayUnion([state])
+
+                        ], merge: true)
+                      
+                      
+                      
+                      
+                        let alert = UIAlertController(title: "Success!", message: "\(object.stringValue) succesfully added!", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (nil) in
+                            UIPasteboard.general.string = object.stringValue
+                          
+                            self.navigationController?.popViewController(animated: true)
+
+                            self.dismiss(animated: true, completion: nil)
+                        }))
+                                          
+                        present(alert, animated: true, completion: nil)
                 }
                 
             }

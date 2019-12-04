@@ -14,7 +14,7 @@ class SettingsTableViewController: UITableViewController {
     
     var db:Firestore!
     
-    var options = ["Enable Recurring Updates", "Recurring Settings", "Add New Subject"]
+    var options = ["Enable Recurring Updates", "Recurring Settings", "Show My QR Code"]
     var subjects : [String] = ["Curtis", "Aidan", "Bella", "Francis"]
     var sections = ["Options", "Manage Subjects"]
     
@@ -65,6 +65,11 @@ class SettingsTableViewController: UITableViewController {
                   print("Document does not exist")
               }
           }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! ParentQRDisplayViewController
+        destination.dataString = self.parentID
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -166,7 +171,7 @@ class SettingsTableViewController: UITableViewController {
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
         if indexPath.section == 0 && indexPath.row == 2 {
-            performSegue(withIdentifier: "scanQR", sender: self)
+            performSegue(withIdentifier: "showQR", sender: self)
 
         }
         

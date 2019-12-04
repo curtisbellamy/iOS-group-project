@@ -52,8 +52,16 @@ class SendUpdateViewController: UIViewController {
         longitude = currentLocation.coordinate.longitude
         
 
-        // Do any additional setup after loading the view.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+
+        view.addGestureRecognizer(tap)
+        
     }
+        
+        @objc func dismissKeyboard() {
+            //Causes the view (or one of its embedded text fields) to resign the first responder status.
+            view.endEditing(true)
+        }
     
     @IBAction func send(_ sender: Any) {
         

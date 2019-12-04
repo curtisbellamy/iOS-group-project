@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChildQRDisplayViewController: UIViewController {
+class ParentQRDisplayViewController: UIViewController {
     
     var qrcodeImage : CIImage!
     
@@ -17,6 +17,7 @@ class ChildQRDisplayViewController: UIViewController {
     @IBOutlet weak var slider: UISlider!
     
     var dataString : String = ""
+    
     
 
     override func viewDidLoad() {

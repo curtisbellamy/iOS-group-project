@@ -67,10 +67,8 @@ class ChildSettingsTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let nextViewController = segue.destination as? ChildQRDisplayViewController {
-//            nextViewController.dataString = childID
-//        }
-        if let nextViewController = segue.destination as? EnterParentViewController {
+
+        if let nextViewController = segue.destination as? QRScannerViewController {
                   nextViewController.childID = childID
               }
     }
@@ -78,8 +76,7 @@ class ChildSettingsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 && indexPath.row == 0 {
-//                performSegue(withIdentifier: "showQR", sender: self)
-                performSegue(withIdentifier: "enterParent", sender: self)
+                performSegue(withIdentifier: "scanQR", sender: self)
 
 
         }

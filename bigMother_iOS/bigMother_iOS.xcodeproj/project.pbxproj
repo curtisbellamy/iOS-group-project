@@ -20,7 +20,7 @@
 		64D1F0A02390E8E300202309 /* SendUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D1F09F2390E8E300202309 /* SendUpdateViewController.swift */; };
 		64F0B1CB233C699A0025FE76 /* SubjectOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F0B1CA233C699A0025FE76 /* SubjectOptionsViewController.swift */; };
 		64F5B339238E4D5D00881B46 /* ChildSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F5B338238E4D5D00881B46 /* ChildSettingsTableViewController.swift */; };
-		64F5B33B238E51CB00881B46 /* ChildQRDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F5B33A238E51CB00881B46 /* ChildQRDisplayViewController.swift */; };
+		64F5B33B238E51CB00881B46 /* ParentQRDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F5B33A238E51CB00881B46 /* ParentQRDisplayViewController.swift */; };
 		64F5B33D238E5AD400881B46 /* ChildHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F5B33C238E5AD400881B46 /* ChildHomeViewController.swift */; };
 		A2068D992391F1A60030D00B /* UpdateHistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2068D982391F1A60030D00B /* UpdateHistoryTableViewController.swift */; };
 		A40F076F233B365200CEACDF /* SubjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40F076E233B365200CEACDF /* SubjectController.swift */; };
@@ -49,7 +49,7 @@
 		64D1F09F2390E8E300202309 /* SendUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendUpdateViewController.swift; sourceTree = "<group>"; };
 		64F0B1CA233C699A0025FE76 /* SubjectOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectOptionsViewController.swift; sourceTree = "<group>"; };
 		64F5B338238E4D5D00881B46 /* ChildSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildSettingsTableViewController.swift; sourceTree = "<group>"; };
-		64F5B33A238E51CB00881B46 /* ChildQRDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildQRDisplayViewController.swift; sourceTree = "<group>"; };
+		64F5B33A238E51CB00881B46 /* ParentQRDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentQRDisplayViewController.swift; sourceTree = "<group>"; };
 		64F5B33C238E5AD400881B46 /* ChildHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildHomeViewController.swift; sourceTree = "<group>"; };
 		A2068D982391F1A60030D00B /* UpdateHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateHistoryTableViewController.swift; sourceTree = "<group>"; };
 		A24A0D97236C9F08000BFE40 /* bigMother.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = bigMother.entitlements; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 				CD32FCFD236CA238008B9126 /* GoogleService-Info.plist */,
 				6411BD4B238D04F200FDF474 /* QRScannerViewController.swift */,
 				64F5B338238E4D5D00881B46 /* ChildSettingsTableViewController.swift */,
-				64F5B33A238E51CB00881B46 /* ChildQRDisplayViewController.swift */,
+				64F5B33A238E51CB00881B46 /* ParentQRDisplayViewController.swift */,
 				64F5B33C238E5AD400881B46 /* ChildHomeViewController.swift */,
 				64D1F09D23909B0100202309 /* EnterParentViewController.swift */,
 				64D1F09F2390E8E300202309 /* SendUpdateViewController.swift */,
@@ -266,7 +266,7 @@
 				A40F076F233B365200CEACDF /* SubjectController.swift in Sources */,
 				A40F0771233B374600CEACDF /* SubjectDetailsController.swift in Sources */,
 				DBA5C7EF233D9E940023F004 /* LoginViewController.swift in Sources */,
-				64F5B33B238E51CB00881B46 /* ChildQRDisplayViewController.swift in Sources */,
+				64F5B33B238E51CB00881B46 /* ParentQRDisplayViewController.swift in Sources */,
 				648B2BF9233DAC4D009265B1 /* QRViewController.swift in Sources */,
 				64CE01B923368FEE00988039 /* AppDelegate.swift in Sources */,
 				6411BD4C238D04F200FDF474 /* QRScannerViewController.swift in Sources */,

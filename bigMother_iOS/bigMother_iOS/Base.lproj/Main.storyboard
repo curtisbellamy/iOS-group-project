@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1ac-bU-Zlt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1ac-bU-Zlt">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -334,8 +334,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="mFD-De-1dP"/>
                     <connections>
-                        <segue destination="Wu2-Pg-wbr" kind="presentation" identifier="showQR" id="u89-Cu-v8E"/>
-                        <segue destination="JvD-FI-iyv" kind="presentation" identifier="enterParent" id="Dmm-3R-SZP"/>
+                        <segue destination="Ahf-7F-4gO" kind="show" identifier="scanQR" id="BAA-hY-H61"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9kt-vq-bC7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -347,11 +346,11 @@
             <objects>
                 <viewController id="JvD-FI-iyv" customClass="EnterParentViewController" customModule="bigMother" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uCL-dO-bpl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="vOF-Bh-j1e">
-                                <rect key="frame" x="76" y="304.66666666666669" width="262" height="198.66666666666669"/>
+                                <rect key="frame" x="76" y="353.66666666666669" width="262" height="198.66666666666669"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Parent Username:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHl-jz-UkM">
                                         <rect key="frame" x="9" y="0.0" width="244" height="28.666666666666668"/>
@@ -369,7 +368,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mYp-b3-CME">
-                                        <rect key="frame" x="95.666666666666657" y="158.66666666666663" width="71" height="40"/>
+                                        <rect key="frame" x="95.666666666666657" y="158.66666666666669" width="71" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <state key="normal" title="Submit"/>
                                         <connections>
@@ -393,12 +392,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WS8-3p-fzY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2957.971014492754" y="-1445.0892857142856"/>
+            <point key="canvasLocation" x="3851" y="-1116"/>
         </scene>
-        <!--ChildQR Display View Controller-->
+        <!--ParentQR Display View Controller-->
         <scene sceneID="RZD-ZB-ZaO">
             <objects>
-                <viewController id="Wu2-Pg-wbr" customClass="ChildQRDisplayViewController" customModule="bigMother" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Wu2-Pg-wbr" customClass="ParentQRDisplayViewController" customModule="bigMother" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="akz-7I-xKN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -433,6 +432,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9E4-Sh-Dfi"/>
                     </view>
+                    <navigationItem key="navigationItem" id="KWs-ms-v93"/>
                     <connections>
                         <outlet property="QRcode" destination="ECa-ho-YOe" id="1AY-tn-9J8"/>
                         <outlet property="slider" destination="Fxu-eb-ZRV" id="cfY-uI-49i"/>
@@ -440,7 +440,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oqP-Er-nGY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2958" y="-702"/>
+            <point key="canvasLocation" x="1828" y="-374"/>
         </scene>
         <!--Settings-->
         <scene sceneID="cOx-jA-s2h">
@@ -644,7 +644,7 @@
             <objects>
                 <viewController id="Ahf-7F-4gO" customClass="QRScannerViewController" customModule="bigMother" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WLr-An-dFc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="jGW-v2-5Un"/>
@@ -653,7 +653,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iKx-dd-WZm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1703" y="-413"/>
+            <point key="canvasLocation" x="2752" y="-1160"/>
         </scene>
         <!--Settings-->
         <scene sceneID="v1I-8P-qgl">
@@ -714,7 +714,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="Glu-v8-192" kind="show" id="5FX-92-2YP"/>
-                        <segue destination="Ahf-7F-4gO" kind="show" identifier="scanQR" id="XKk-RR-ldG"/>
+                        <segue destination="Wu2-Pg-wbr" kind="show" identifier="showQR" id="xLB-aR-HqX"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Evw-ud-cWn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1079,11 +1079,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="exclamationmark.circle" catalog="system" width="64" height="62"/>
-        <image name="gear" catalog="system" width="64" height="60"/>
+        <image name="exclamationmark.circle" catalog="system" width="64" height="60"/>
+        <image name="gear" catalog="system" width="64" height="58"/>
         <image name="house.fill" catalog="system" width="64" height="52"/>
         <image name="logoIdea0" width="110.33333587646484" height="133.33332824707031"/>
-        <image name="map" catalog="system" width="64" height="58"/>
+        <image name="map" catalog="system" width="64" height="56"/>
         <image name="person.2.fill" catalog="system" width="64" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
