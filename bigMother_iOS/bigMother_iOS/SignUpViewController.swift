@@ -14,6 +14,9 @@ class SignUpViewController: UIViewController {
     
     var db:Firestore!
     
+    var parentID: String = ""
+    
+    var childArray : [String] = []
     
     @IBOutlet weak var statusLabel: UILabel!
     
@@ -23,6 +26,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var confirmPassword: UITextField!
     @IBOutlet weak var submit: UIButton!
     @IBOutlet weak var parentSwitch: UISwitch!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,10 +48,35 @@ class SignUpViewController: UIViewController {
         view.endEditing(true)
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            
+        if segue.identifier == "loginSegue" {
+                
+            let barViewControllers = segue.destination as! UITabBarController
+            let nav = barViewControllers.viewControllers![0] as! UINavigationController
+            let destinationViewController = nav.viewControllers[0] as! SubjectViewController
+            destinationViewController.parentID = parentID
+            destinationViewController.subjects = childArray
+            
+            let nav2 = barViewControllers.viewControllers![2] as! UINavigationController
+            let destinationViewController2 = nav2.viewControllers[0] as! SettingsTableViewController
+            destinationViewController2.subjects = childArray
+            destinationViewController2.parentID = parentID
+
+
+        }
+
+        
+    }
+    
+    
     @IBAction func submitPressed(_ sender: Any) {
         let usernameText = email.text
         let passwordText = password.text
         let confPasswordText = confirmPassword.text
+        
+        self.parentID = usernameText!
         
         if passwordText != confPasswordText {
             statusLabel.text = "Passwords do not match."
@@ -61,47 +90,47 @@ class SignUpViewController: UIViewController {
             
         } else if parentSwitch.isOn {
         
-            db.collection("parents").getDocuments() { (querySnapshot, err) in
-                 if let err = err {
-                     print("Error getting documents: \(err)")
-                    
-                 } else {
-                    
-                     for document in querySnapshot!.documents {
-                         print("\(document.documentID) => \(document.data())")
-                         if (document.documentID == usernameText) {
-                            self.statusLabel.text = "Username already taken."
-                            self.statusLabel.textColor = .red
-                            self.statusLabel.isHidden = false
-                            
-                            return
+               db.collection("parents").getDocuments() { (querySnapshot, err) in
+                       if let err = err {
+                           print("Error getting documents: \(err)")
+                          
+                       } else {
+                          
+                           for document in querySnapshot!.documents {
 
-                         }
-                    }
+                              if (document.documentID == usernameText) {
+                                  self.statusLabel.text = "Username already taken."
+                                  self.statusLabel.textColor = .red
+                                  self.statusLabel.isHidden = false
+                                  
+                                  return
 
-                    self.db.collection("parents").document(usernameText!).setData([
-                        "password": passwordText!
-                            ]) { err in
-                                if let err = err {
-                                    print("error creating channel")
-                                } else {
-                                    print("parent created")
+                               }
+                          }
 
-                                }
-                            }
+                          self.db.collection("parents").document(usernameText!).setData([
+                              "password": passwordText!
+                                  ]) { err in
+                                      if let err = err {
+                                          print("error creating channel")
+                                      } else {
+                                          print("parent created")
+
+                                      }
+                                  }
 
 
 
-                    self.statusLabel.text = "Registered successfuly!"
-                    self.statusLabel.textColor = .systemGreen
-                    self.statusLabel.isHidden = false
+                          self.statusLabel.text = "Registered successfuly!"
+                          self.statusLabel.textColor = .systemGreen
+                          self.statusLabel.isHidden = false
 
-                    self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                          self.performSegue(withIdentifier: "loginSegue", sender: nil)
 
-                        
-                     }
-                
-            }
+                              
+                           }
+                      
+                  }
             
             
         } else {

@@ -20,9 +20,7 @@ class SubjectViewController: UITableViewController {
     var db:Firestore!
     
     var subjects : [String] = []
-    
-    //var subjects : [String] = ["Curtis", "Aidan", "Bella", "Francis"]
-    
+        
     var subjectChosen : String = ""
 
 
