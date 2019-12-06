@@ -883,12 +883,12 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kod-uH-aRa">
                                         <rect key="frame" x="0.0" y="120.33333333333334" width="238" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wCH-c6-wQu">
                                         <rect key="frame" x="0.0" y="187.33333333333334" width="238" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBe-oJ-3BN">
                                         <rect key="frame" x="0.0" y="254.33333333333334" width="238" height="14.333333333333343"/>
@@ -1146,9 +1146,9 @@
         <image name="person.2.fill" catalog="system" width="64" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="D1q-DQ-WTY"/>
+        <segue reference="jH5-3X-TJd"/>
         <segue reference="Kru-LN-Sy2"/>
-        <segue reference="WY8-H0-4ZJ"/>
+        <segue reference="dPJ-Z6-upC"/>
         <segue reference="AZY-ET-Dbe"/>
     </inferredMetricsTieBreakers>
 </document>

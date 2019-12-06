@@ -88,6 +88,8 @@ class LoginViewController: UIViewController {
 
                             self.generateLastCoordinates()
                             self.performSegue(withIdentifier: "loginSegue",sender: self)
+                            self.loginStatusLabel.textColor = .green
+                            self.loginStatusLabel.text = "Logged in successfully!"
 
                             
                         }
@@ -110,6 +112,7 @@ class LoginViewController: UIViewController {
                                   
                                 self.loginStatusLabel.textColor = .green
                                 self.loginStatusLabel.text = "Logged in successfully!"
+                                
                                   
                               }
                           }
@@ -190,13 +193,13 @@ class LoginViewController: UIViewController {
                         }
 
                     }
-                    self.performSegue(withIdentifier: "loginSegue",sender: self)
-                                       
-                    self.loginStatusLabel.textColor = .green
-                    self.loginStatusLabel.text = "Logged in successfully!"
+//                    self.performSegue(withIdentifier: "loginSegue",sender: self)
+//
+//                    self.loginStatusLabel.textColor = .green
+//                    self.loginStatusLabel.text = "Logged in successfully!"
 
                        } else {
-                           print("Document does not exist")
+                           print("Document does not exist coord")
                        }
                    }
         
