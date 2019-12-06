@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,17 +16,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="127" translatesAutoresizingMaskIntoConstraints="NO" id="Oml-hc-kyP">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Oml-hc-kyP">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="subject" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3AA-sq-PEt">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="27.666666666666668"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="f2y-IT-PLa"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTm-mn-u3m">
-                                        <rect key="frame" x="0.0" y="154.66666666666666" width="414" height="100"/>
+                                        <rect key="frame" x="0.0" y="58" width="414" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="CEM-O8-QU0"/>
                                         </constraints>
@@ -36,7 +40,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ubc-Vn-nT2">
-                                        <rect key="frame" x="0.0" y="381.66666666666669" width="414" height="80"/>
+                                        <rect key="frame" x="0.0" y="166" width="414" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="dRW-bV-Km8"/>
                                         </constraints>
@@ -47,7 +51,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5y-YJ-8KH">
-                                        <rect key="frame" x="0.0" y="588.66666666666663" width="414" height="185.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="254" width="414" height="520"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <state key="normal" title="Update History"/>
                                         <connections>
@@ -65,9 +69,9 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Oml-hc-kyP" firstAttribute="top" secondItem="DCe-Rz-P2i" secondAttribute="top" id="5pB-qL-S0D"/>
                             <constraint firstItem="Oml-hc-kyP" firstAttribute="leading" secondItem="DCe-Rz-P2i" secondAttribute="leading" id="CDi-fU-8WZ"/>
                             <constraint firstItem="DCe-Rz-P2i" firstAttribute="bottom" secondItem="Oml-hc-kyP" secondAttribute="bottom" id="Dah-2a-RDQ"/>
-                            <constraint firstItem="Oml-hc-kyP" firstAttribute="top" secondItem="DCe-Rz-P2i" secondAttribute="top" id="KIj-RR-fUn"/>
                             <constraint firstItem="DCe-Rz-P2i" firstAttribute="trailing" secondItem="Oml-hc-kyP" secondAttribute="trailing" id="KLl-RX-2cD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DCe-Rz-P2i"/>
@@ -1114,6 +1118,6 @@
         <segue reference="jH5-3X-TJd"/>
         <segue reference="Kru-LN-Sy2"/>
         <segue reference="WY8-H0-4ZJ"/>
-        <segue reference="abv-o8-qua"/>
+        <segue reference="AZY-ET-Dbe"/>
     </inferredMetricsTieBreakers>
 </document>
