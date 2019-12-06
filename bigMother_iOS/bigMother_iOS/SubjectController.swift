@@ -210,13 +210,6 @@ class SubjectViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = subjects[indexPath.row]
         
-        let img = UIImageView(image:UIImage(named:"alert-1")!)
-        img.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-
-        cell.accessoryView = img
-        
-//        img.isHidden = true
-        cell.accessoryView?.isHidden = true
 
         return cell
     }
