@@ -90,11 +90,12 @@ class LoginViewController: UIViewController {
                 
                             
                         }
-                    } else {
-                        self.entryFailText.text = "user doesn't exist, please signup!"
-                        print(self.entryFailText.text!)
-                        
                     }
+//                    else {
+//                        self.entryFailText.text = "user doesn't exist, please signup!"
+//                        print(self.entryFailText.text!)
+//
+//                    }
                 }
             }
         }
