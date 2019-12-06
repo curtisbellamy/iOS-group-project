@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginStatusLabel: UILabel!
-    @IBOutlet weak var entryFailText: UILabel!
+//    @IBOutlet weak var entryFailText: UILabel!
     var lastKnownCoordinates : [CustomLocation] = []
     
     var ID : String = ""
@@ -90,11 +90,12 @@ class LoginViewController: UIViewController {
                 
                             
                         }
-                    } else {
-                        self.entryFailText.text = "user doesn't exist, please signup!"
-                        print(self.entryFailText.text!)
-                        
                     }
+//                    else {
+//                        self.entryFailText.text = "user doesn't exist, please signup!"
+//                        print(self.entryFailText.text!)
+//
+//                    }
                 }
             }
         }
