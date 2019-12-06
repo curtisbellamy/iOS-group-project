@@ -47,12 +47,19 @@ class SubjectViewController: UITableViewController {
         buildArray()
         self.tableView.reloadData()
         
-        
-//        checkReceivedStatus()
-        
+            
         NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: UIApplication.willResignActiveNotification, object: nil)
 
         startNotificationTimer()
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        buildArray()
+        self.tableView.reloadData()
+        
 
     }
     
@@ -68,7 +75,6 @@ class SubjectViewController: UITableViewController {
     }
     
     
-    //FINISH
     @objc func checkReceivedStatus() {
         
         if notified {
@@ -91,81 +97,67 @@ class SubjectViewController: UITableViewController {
                     
                     if tempState as? String == "received" {
                         
+//                        let notificationView = NotificationView.default
+//                       notificationView.title = "Attention"
+//                       notificationView.body = "You have received an update from \(data.key)"
+//                       notificationView.image = UIImage(named: "120.png")
+//                       notificationView.show()
+//
+//                       self.notified = true
+                        self.timer.invalidate()
+                        
                         if appState == .background {
-                            
+
                             let center = UNUserNotificationCenter.current()
-                    
+
                             center.requestAuthorization(options: [.alert, .sound])
                             { (granted, error) in
-                    
+
                             }
-                    
+
                             let content = UNMutableNotificationContent()
                             content.title = "Attention"
                             content.body = "You have received an update from \(data.key)!"
-                    
+
                             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1,
                             repeats: false)
-                    
+
                             let uuidString = UUID().uuidString
                             let request =  UNNotificationRequest(identifier: uuidString, content:
                                 content, trigger: trigger)
-                    
+
                             center.add(request) { (error) in }
-                            
+
                             self.notified = true
-                            
+                            self.timer.invalidate()
+
                         }
-                        
+
                         if appState == .active {
-                            
+
                             let notificationView = NotificationView.default
                             notificationView.title = "Attention"
-//                            notificationView.subtitle = "You have received an update from \(data.key)"
                             notificationView.body = "You have received an update from \(data.key)"
-//                            notificationView.image = image
+                            notificationView.image = UIImage(named: "120.png")
                             notificationView.show()
-                            
+
                             self.notified = true
-        
-                            
+                            self.timer.invalidate()
+
+
+
                         }
                     }
-                    print(last)
-//                    print(tempArr!.value(forKey: "state"))
-//                    var lastUpdate = array[array!.endIndex - 1] as! NSDictionary
-//                    print(lastUpdate)
-
+                    
                 }
-//                   let thread = document.data()![self.replace(str: self.subjectName)] as? [NSDictionary]
-//
-//                   for update in thread! {
-//
-//                       if update.value(forKey: "state") as? String == "received" {
-//                           self.history.append(update)
-//                       }
-//                   }
-
-                   
-                       
-
-                   } else {
-                       print("Document does not exist")
-                   }
-               }
+                
+               } else {
+                print("Document does not exist")
+            }
+        }
         
     }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-           super.viewWillAppear(animated)
 
-           buildArray()
-                             
-           self.tableView.reloadData()
-
-
-    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
