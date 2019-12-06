@@ -8,8 +8,14 @@
 
 import UIKit
 import FirebaseFirestore
+import UserNotifications
+import NotificationView
 
 class SubjectDetailsViewController: UIViewController {
+    
+    var timer = Timer()
+    
+    var notified : Bool = false
     
     var subjectName : String = ""
     
@@ -74,6 +80,9 @@ class SubjectDetailsViewController: UIViewController {
         }
         
         generateHistory()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: UIApplication.willResignActiveNotification, object: nil)
+
         
     }
     
@@ -192,10 +201,6 @@ class SubjectDetailsViewController: UIViewController {
           }
         }
         
-//        document2.setData([
-//            //replace(str: subjectName) : FieldValue.arrayUnion([state])
-//
-//        ], merge: true)
         
         
     }
@@ -218,7 +223,91 @@ class SubjectDetailsViewController: UIViewController {
 
         }))
         self.present(alert, animated: true, completion: nil)
+        
+        startNotificationTimer()
 
+    }
+    
+    private func startNotificationTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector:  #selector(self.checkReceivedStatus), userInfo: nil, repeats: true)
+
+    }
+    
+    
+    @objc func willResignActive(_ notification: Notification) {
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector:  #selector(self.checkReceivedStatus), userInfo: nil, repeats: true)
+        print("BACKGROUND")
+    }
+    
+    @objc func checkReceivedStatus() {
+        
+        if notified {
+            timer.invalidate()
+            self.notified = false
+        }
+        
+        var appState = UIApplication.shared.applicationState
+        
+        let docRef = self.db.collection("channels").document(parentID)
+           docRef.getDocument { (document, error) in
+                   
+               if let document = document, document.exists {
+                   
+                for data in document.data()! {
+                    print(data.key)
+                    let tempArr = data.value as? Array<Any>
+                    var last = tempArr![tempArr!.endIndex - 1] as! NSDictionary
+                    let tempState = last.value(forKey: "state")
+                    
+                    if tempState as? String == "received" {
+                        
+                        if appState == .background {
+                            
+                            let center = UNUserNotificationCenter.current()
+                    
+                            center.requestAuthorization(options: [.alert, .sound])
+                            { (granted, error) in
+                    
+                            }
+                    
+                            let content = UNMutableNotificationContent()
+                            content.title = "Attention"
+                            content.body = "You have received an update from \(data.key)!"
+                    
+                            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1,
+                            repeats: false)
+                    
+                            let uuidString = UUID().uuidString
+                            let request =  UNNotificationRequest(identifier: uuidString, content:
+                                content, trigger: trigger)
+                    
+                            center.add(request) { (error) in }
+                            
+                            self.notified = true
+                            
+                        } else if appState == .active {
+                            
+                            let notificationView = NotificationView.default
+                            notificationView.title = "Attention"
+//                            notificationView.subtitle = "You have received an update from \(data.key)"
+                            notificationView.body = "You have received an update from \(data.key)"
+//                            notificationView.image = image
+                            notificationView.show()
+                            
+                            self.notified = true
+                            
+                        }
+                    }
+                    print(last)
+
+                }
+
+
+                   } else {
+                       print("Document does not exist")
+                   }
+               }
+        
     }
     
     

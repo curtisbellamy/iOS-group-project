@@ -116,12 +116,14 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - NotificationView (0.2.1)
   - Protobuf (3.10.0)
 
 DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Firestore
+  - NotificationView
 
 SPEC REPOS:
   trunk:
@@ -144,6 +146,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - NotificationView
     - Protobuf
 
 SPEC CHECKSUMS:
@@ -166,8 +169,9 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 43b8b64263023d4f32caa0b40f4c8bfa3c5f36d8
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  NotificationView: 7d60fdb59ad3cfde08c637c0df2aa3925e364625
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
 
-PODFILE CHECKSUM: 00693f93ed0debf85e41a23f1265c18f9505f791
+PODFILE CHECKSUM: 92ac983cacdb703b124edde21205edca73f8c85c
 
 COCOAPODS: 1.8.3

@@ -316,6 +316,9 @@
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map" catalog="system" selectedImage="map" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="myMap" destination="ONX-Pa-6Ru" id="TiA-6R-0hy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -1112,7 +1115,7 @@
         <image name="person.2.fill" catalog="system" width="64" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="D1q-DQ-WTY"/>
+        <segue reference="jH5-3X-TJd"/>
         <segue reference="Kru-LN-Sy2"/>
         <segue reference="WY8-H0-4ZJ"/>
         <segue reference="AZY-ET-Dbe"/>

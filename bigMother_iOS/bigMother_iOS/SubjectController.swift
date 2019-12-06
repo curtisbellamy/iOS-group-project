@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseFirestore
 import UserNotifications
+import NotificationView
 
 
 var myIndex = 0
@@ -25,6 +26,8 @@ class SubjectViewController: UITableViewController {
     var subjectChosen : String = ""
 
     var timer = Timer()
+    
+    var notified : Bool = false
 
 
     // MARK: - Table view data source
@@ -45,15 +48,35 @@ class SubjectViewController: UITableViewController {
         self.tableView.reloadData()
         
         
-        checkReceivedStatus()
+//        checkReceivedStatus()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: UIApplication.willResignActiveNotification, object: nil)
+
+        startNotificationTimer()
+
+    }
+    
+    private func startNotificationTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector:  #selector(self.checkReceivedStatus), userInfo: nil, repeats: true)
 
     }
     
     
+    @objc func willResignActive(_ notification: Notification) {
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector:  #selector(self.checkReceivedStatus), userInfo: nil, repeats: true)
+        print("BACKGROUND")
+    }
+    
+    
     //FINISH
-    private func checkReceivedStatus() {
+    @objc func checkReceivedStatus() {
         
-        var appState = UIApplication.shared.applicationState
+        if notified {
+            self.timer.invalidate()
+            self.notified = false
+        }
+        
+        let appState = UIApplication.shared.applicationState
         
         let docRef = self.db.collection("channels").document(parentID)
            docRef.getDocument { (document, error) in
@@ -63,15 +86,10 @@ class SubjectViewController: UITableViewController {
                 for data in document.data()! {
                     print(data.key)
                     let tempArr = data.value as? Array<Any>
-                    var last = tempArr![tempArr!.endIndex - 1] as! NSDictionary
+                    let last = tempArr![tempArr!.endIndex - 1] as! NSDictionary
                     let tempState = last.value(forKey: "state")
                     
                     if tempState as? String == "received" {
-//                        let index = self.subjects.firstIndex(of: data.key)
-//
-//                        let indexPath = IndexPath(row: index!, section: 0)
-//                        let cell = self.tableView.cellForRow(at: indexPath)
-//                        cell?.accessoryView?.isHidden = false
                         
                         if appState == .background {
                             
@@ -93,16 +111,27 @@ class SubjectViewController: UITableViewController {
                             let request =  UNNotificationRequest(identifier: uuidString, content:
                                 content, trigger: trigger)
                     
-                            center.add(request) { (error) in
-                    
-                            }
+                            center.add(request) { (error) in }
                             
-                        } else if appState == .active {
+                            self.notified = true
+                            
+                        }
+                        
+                        if appState == .active {
+                            
+                            let notificationView = NotificationView.default
+                            notificationView.title = "Attention"
+//                            notificationView.subtitle = "You have received an update from \(data.key)"
+                            notificationView.body = "You have received an update from \(data.key)"
+//                            notificationView.image = image
+                            notificationView.show()
+                            
+                            self.notified = true
+        
                             
                         }
                     }
                     print(last)
-
 //                    print(tempArr!.value(forKey: "state"))
 //                    var lastUpdate = array[array!.endIndex - 1] as! NSDictionary
 //                    print(lastUpdate)
