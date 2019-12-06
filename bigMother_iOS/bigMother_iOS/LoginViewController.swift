@@ -64,7 +64,6 @@ class LoginViewController: UIViewController {
     @IBAction func login(_ sender: Any) {
         let username = usernameTextField.text!
         let password = passwordTextField.text!
-//        let entryFailText = "user doesn't exist, please signup!"
         
         if (username == "" || password == "") {
             //indicate empty fields
