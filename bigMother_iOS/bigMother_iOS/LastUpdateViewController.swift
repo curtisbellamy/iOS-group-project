@@ -47,7 +47,7 @@ class LastUpdateViewController: UIViewController, CLLocationManagerDelegate, MKM
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
         
-        subjectTitle.text = subjectName
+        subjectTitle.text = "Last Update for \(subjectName)"
 
         // Do any additional setup after loading the view.
 //        subjectTitle.text = subjects[myIndex] + " Last Update"
@@ -131,15 +131,14 @@ class LastUpdateViewController: UIViewController, CLLocationManagerDelegate, MKM
 
                                 let emotionVal = lastMsg.value(forKey: "emotionalState")
 
-                                let latitude = lastMsg.value(forKey: "lat") as? String
+                                let latitude = Double(lastMsg.value(forKey: "lat") as! String)
 
-                                let longitude = lastMsg.value(forKey: "long") as? String
+                                let longitude = Double(lastMsg.value(forKey: "long") as! String)
                                 
-//                                self.lat = Double(latitude!)
-//                                self.long = Double(longitude!)
                                 
-                                print(self.lat)
-                                print(self.long)
+                                self.lat = latitude!
+                                self.long = longitude!
+                            
                                 
                                 
                                 self.activityLabel.text = activityVal as? String
