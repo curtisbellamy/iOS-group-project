@@ -45,7 +45,7 @@ class ChildHomeViewController: UIViewController {
         image.isHidden = true
         noReqLabel.isHidden = false
         
-//        determineParent()
+        determineParent()
         
         NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: UIApplication.willResignActiveNotification, object: nil)
 
@@ -106,11 +106,6 @@ class ChildHomeViewController: UIViewController {
            return
         }
        
-//        if notified && appState == .active {
-//           self.timer.invalidate()
-////           self.notified = false
-////           return
-//        }
         
         
         let parentRef = db.collection("parents")

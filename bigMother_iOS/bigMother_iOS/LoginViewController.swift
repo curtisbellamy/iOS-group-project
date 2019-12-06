@@ -87,18 +87,15 @@ class LoginViewController: UIViewController {
                             }
 
                             self.generateLastCoordinates()
-                
+                            self.performSegue(withIdentifier: "loginSegue",sender: self)
+
                             
                         }
                     }
-//                    else {
-//                        self.entryFailText.text = "user doesn't exist, please signup!"
-//                        print(self.entryFailText.text!)
-//
-//                    }
                 }
             }
         }
+        
         
         db.collection("children").getDocuments() { (querySnapshot, err) in
                   if let err = err {
@@ -126,7 +123,7 @@ class LoginViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "childRoute" {
+       if segue.identifier == "childRoute" {
             
             let barViewControllers = segue.destination as! UITabBarController
             let nav = barViewControllers.viewControllers![1] as! UINavigationController
@@ -158,7 +155,7 @@ class LoginViewController: UIViewController {
     
     private func generateLastCoordinates() {
         
-          let docRef = self.db.collection("channels").document(ID)
+        let docRef = self.db.collection("channels").document(ID)
         
                docRef.getDocument { (document, error) in
                        
@@ -202,6 +199,7 @@ class LoginViewController: UIViewController {
                            print("Document does not exist")
                        }
                    }
+        
         
     }
     

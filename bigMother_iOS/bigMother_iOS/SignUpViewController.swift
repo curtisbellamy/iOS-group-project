@@ -16,6 +16,8 @@ class SignUpViewController: UIViewController {
     
     var parentID: String = ""
     
+    var childID : String = ""
+    
     var childArray : [String] = []
     
     @IBOutlet weak var statusLabel: UILabel!
@@ -61,11 +63,23 @@ class SignUpViewController: UIViewController {
             
             let nav2 = barViewControllers.viewControllers![2] as! UINavigationController
             let destinationViewController2 = nav2.viewControllers[0] as! SettingsTableViewController
-            destinationViewController2.subjects = childArray
+//            destinationViewController2.subjects = childArray
             destinationViewController2.parentID = parentID
 
 
         }
+        
+        if segue.identifier == "childRoute" {
+                 
+            let barViewControllers = segue.destination as! UITabBarController
+            let nav = barViewControllers.viewControllers![1] as! UINavigationController
+            let destinationViewController2 = barViewControllers.viewControllers![0] as! ChildHomeViewController
+            let destinationViewController = nav.viewControllers[0] as! ChildSettingsTableViewController
+            destinationViewController.childID = self.childID
+            destinationViewController2.childID = self.childID
+
+
+         }
 
         
     }
@@ -76,8 +90,7 @@ class SignUpViewController: UIViewController {
         let passwordText = password.text
         let confPasswordText = confirmPassword.text
         
-        self.parentID = usernameText!
-        
+                
         if passwordText != confPasswordText {
             statusLabel.text = "Passwords do not match."
             statusLabel.textColor = .red
@@ -89,6 +102,9 @@ class SignUpViewController: UIViewController {
             statusLabel.isHidden = false
             
         } else if parentSwitch.isOn {
+            
+            self.parentID = usernameText!
+
         
                db.collection("parents").getDocuments() { (querySnapshot, err) in
                        if let err = err {
@@ -135,47 +151,90 @@ class SignUpViewController: UIViewController {
             
         } else {
             
-          db.collection("children").getDocuments() { (querySnapshot, err) in
-                         if let err = err {
-                             print("Error getting documents: \(err)")
-                            
-                         } else {
-                            
-                             for document in querySnapshot!.documents {
+            self.childID = usernameText!
 
-                                if (document.documentID == usernameText) {
-                                    self.statusLabel.text = "Username already taken."
-                                    self.statusLabel.textColor = .red
-                                    self.statusLabel.isHidden = false
-                                    
-                                    return
-
-                                 }
-                            }
-
-                            self.db.collection("children").document(usernameText!).setData([
-                                "password": passwordText!
-                                    ]) { err in
-                                        if let err = err {
-                                            print("error creating channel")
-                                        } else {
-                                            print("child created")
-
-                                        }
-                                    }
-
-
-
-                            self.statusLabel.text = "Registered successfuly!"
-                            self.statusLabel.textColor = .systemGreen
-                            self.statusLabel.isHidden = false
-
-                            self.performSegue(withIdentifier: "childRoute", sender: nil)
-
+            db.collection("children").getDocuments() { (querySnapshot, err) in
+                             if let err = err {
+                                 print("Error getting documents: \(err)")
                                 
-                             }
-                        
-                    }
+                             } else {
+                                
+                                 for document in querySnapshot!.documents {
+
+                                    if (document.documentID == usernameText) {
+                                        self.statusLabel.text = "Username already taken."
+                                        self.statusLabel.textColor = .red
+                                        self.statusLabel.isHidden = false
+                                        
+                                        return
+
+                                     }
+                                }
+
+                                self.db.collection("children").document(usernameText!).setData([
+                                    "password": passwordText!
+                                        ]) { err in
+                                            if let err = err {
+                                                print("error creating channel")
+                                            } else {
+                                                print("child created")
+
+                                            }
+                                        }
+
+
+
+                                self.statusLabel.text = "Registered successfuly!"
+                                self.statusLabel.textColor = .systemGreen
+                                self.statusLabel.isHidden = false
+
+                                self.performSegue(withIdentifier: "childRoute", sender: nil)
+
+                                    
+                                 }
+                            
+                        }
+//            db.collection("children").getDocuments() { (querySnapshot, err) in
+//                         if let err = err {
+//                             print("Error getting documents: \(err)")
+//
+//                         } else {
+//
+//                             for document in querySnapshot!.documents {
+//
+//                                if (document.documentID == usernameText) {
+//                                    self.statusLabel.text = "Username already taken."
+//                                    self.statusLabel.textColor = .red
+//                                    self.statusLabel.isHidden = false
+//
+//                                    return
+//
+//                                 }
+//                            }
+//
+//                            self.db.collection("children").document(usernameText!).setData([
+//                                "password": passwordText!
+//                                    ]) { err in
+//                                        if let err = err {
+//                                            print("error creating channel")
+//                                        } else {
+//                                            print("child created")
+//
+//                                        }
+//                            }
+//
+//
+//
+//                            self.statusLabel.text = "Registered successfuly!"
+//                            self.statusLabel.textColor = .systemGreen
+//                            self.statusLabel.isHidden = false
+//
+//                            //self.performSegue(withIdentifier: "childRoute", sender: nil)
+//
+//
+//                             }
+//
+//                    }
             
         }
         
