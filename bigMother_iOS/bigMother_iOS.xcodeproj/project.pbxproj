@@ -55,7 +55,7 @@
 		64F5B33C238E5AD400881B46 /* ChildHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildHomeViewController.swift; sourceTree = "<group>"; };
 		A2068D982391F1A60030D00B /* UpdateHistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateHistoryTableViewController.swift; sourceTree = "<group>"; };
 		A24A0D97236C9F08000BFE40 /* bigMother.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = bigMother.entitlements; sourceTree = "<group>"; };
-		A40F076E233B365200CEACDF /* SubjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectController.swift; sourceTree = "<group>"; };
+		A40F076E233B365200CEACDF /* SubjectController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = SubjectController.swift; sourceTree = "<group>"; };
 		A40F0770233B374600CEACDF /* SubjectDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectDetailsController.swift; sourceTree = "<group>"; };
 		B79E8CC804D274819BE04DF4 /* Pods-bigMother_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bigMother_iOS.release.xcconfig"; path = "Target Support Files/Pods-bigMother_iOS/Pods-bigMother_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		CD32FCFD236CA238008B9126 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };

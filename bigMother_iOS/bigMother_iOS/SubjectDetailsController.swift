@@ -15,6 +15,8 @@ class SubjectDetailsViewController: UIViewController {
     
     var timer = Timer()
     
+    var backgroundTimer = Timer()
+    
     var notified : Bool = false
     
     var subjectName : String = ""
@@ -83,7 +85,20 @@ class SubjectDetailsViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: UIApplication.willResignActiveNotification, object: nil)
 
+        NotificationCenter.default.addObserver(self, selector: #selector(willBecomeActive), name: UIApplication.didBecomeActiveNotification , object: nil)
+
         
+    }
+    
+    @objc func willBecomeActive(_ notification: Notification) {
+           self.backgroundTimer.invalidate()
+           startNotificationTimer()
+              
+    }
+    
+    @objc func willResignActive(_ notification: Notification) {
+        backgroundTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector:  #selector(self.checkReceivedStatus), userInfo: nil, repeats: true)
+        self.timer.invalidate()
     }
     
     @IBAction func updateHistory(_ sender: Any) {
@@ -229,25 +244,28 @@ class SubjectDetailsViewController: UIViewController {
     }
     
     private func startNotificationTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector:  #selector(self.checkReceivedStatus), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector:  #selector(self.checkReceivedStatus), userInfo: nil, repeats: true)
 
     }
     
-    
-    @objc func willResignActive(_ notification: Notification) {
-        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector:  #selector(self.checkReceivedStatus), userInfo: nil, repeats: true)
-        print("BACKGROUND")
-    }
+
     
     @objc func checkReceivedStatus() {
+        var appState = UIApplication.shared.applicationState
+
         
-        if notified {
-            timer.invalidate()
+        if notified && appState == .background {
+            self.backgroundTimer.invalidate()
             self.notified = false
+            return
         }
         
-        var appState = UIApplication.shared.applicationState
-        
+        if notified && appState == .active {
+             self.timer.invalidate()
+             self.notified = false
+             return
+        }
+                
         let docRef = self.db.collection("channels").document(parentID)
            docRef.getDocument { (document, error) in
                    
@@ -284,6 +302,8 @@ class SubjectDetailsViewController: UIViewController {
                             center.add(request) { (error) in }
                             
                             self.notified = true
+                            self.timer.invalidate()
+                            return
                             
                         } else if appState == .active {
                             
@@ -295,6 +315,8 @@ class SubjectDetailsViewController: UIViewController {
                             notificationView.show()
                             
                             self.notified = true
+                            self.timer.invalidate()
+                            return
                             
                         }
                     }

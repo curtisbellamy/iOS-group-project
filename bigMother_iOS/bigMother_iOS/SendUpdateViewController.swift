@@ -69,7 +69,6 @@ class SendUpdateViewController: UIViewController {
     }
         
     @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
     
@@ -93,10 +92,11 @@ class SendUpdateViewController: UIViewController {
         
         let alert = UIAlertController(title: "Success!", message: "Update sent succesfully.", preferredStyle: .alert)
              alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-
+                
                  self.navigationController?.popViewController(animated: true)
 
                  self.dismiss(animated: true, completion: nil)
+                
                  
 
 

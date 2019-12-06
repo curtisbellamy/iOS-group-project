@@ -85,7 +85,7 @@ class LastUpdateViewController: UIViewController, CLLocationManagerDelegate, MKM
             self.emotionLabel.text = recentEmotion
             self.dateLabel.text = recentDate
             
-            if recentEmotion == "Happy" || recentEmotion as? String == "Okay" {
+            if recentEmotion == "Happy" || recentEmotion as? String == "Okay" || recentEmotion as? String == "Good" {
                 self.emotionLabel.textColor = .green
                                       
             } else if recentEmotion as? String == "Anxious" || recentEmotion as? String == "Stressed" {

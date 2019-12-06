@@ -27,6 +27,8 @@ class SubjectViewController: UITableViewController {
 
     var timer = Timer()
     
+    var backgroundTimer = Timer()
+    
     var notified : Bool = false
 
 
@@ -49,9 +51,18 @@ class SubjectViewController: UITableViewController {
         
             
         NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: UIApplication.willResignActiveNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(willBecomeActive), name: UIApplication.didBecomeActiveNotification , object: nil)
+
 
         startNotificationTimer()
 
+    }
+    
+    @objc func willBecomeActive(_ notification: Notification) {
+        self.backgroundTimer.invalidate()
+        startNotificationTimer()
+           
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,47 +75,45 @@ class SubjectViewController: UITableViewController {
     }
     
     private func startNotificationTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector:  #selector(self.checkReceivedStatus), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector:  #selector(self.checkReceivedStatus), userInfo: nil, repeats: true)
 
     }
     
     
     @objc func willResignActive(_ notification: Notification) {
-        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector:  #selector(self.checkReceivedStatus), userInfo: nil, repeats: true)
-        print("BACKGROUND")
+        backgroundTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector:  #selector(self.checkReceivedStatus), userInfo: nil, repeats: true)
+        self.timer.invalidate()
     }
     
     
     @objc func checkReceivedStatus() {
         
-        if notified {
-            self.timer.invalidate()
+        let appState = UIApplication.shared.applicationState
+
+        
+        if notified && appState == .background{
+            self.backgroundTimer.invalidate()
             self.notified = false
+            return
         }
         
-        let appState = UIApplication.shared.applicationState
-        
+        if notified && appState == .active {
+            self.timer.invalidate()
+            self.notified = false
+            return
+        }
+                
         let docRef = self.db.collection("channels").document(parentID)
            docRef.getDocument { (document, error) in
                    
                if let document = document, document.exists {
                    
                 for data in document.data()! {
-                    print(data.key)
                     let tempArr = data.value as? Array<Any>
                     let last = tempArr![tempArr!.endIndex - 1] as! NSDictionary
                     let tempState = last.value(forKey: "state")
                     
                     if tempState as? String == "received" {
-                        
-//                        let notificationView = NotificationView.default
-//                       notificationView.title = "Attention"
-//                       notificationView.body = "You have received an update from \(data.key)"
-//                       notificationView.image = UIImage(named: "120.png")
-//                       notificationView.show()
-//
-//                       self.notified = true
-                        self.timer.invalidate()
                         
                         if appState == .background {
 
@@ -130,6 +139,7 @@ class SubjectViewController: UITableViewController {
 
                             self.notified = true
                             self.timer.invalidate()
+                            return
 
                         }
 
@@ -143,6 +153,7 @@ class SubjectViewController: UITableViewController {
 
                             self.notified = true
                             self.timer.invalidate()
+                            return
 
 
 

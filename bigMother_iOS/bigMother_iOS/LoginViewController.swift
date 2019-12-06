@@ -169,15 +169,10 @@ class LoginViewController: UIViewController {
                         
                         if tempArr!.count >= 3 {
                             
-                            print("INSIDE IF \(data.key)")
-                            
                             var last = tempArr![tempArr!.endIndex - 1] as! NSDictionary
                         
                             
                             var tempState = last.value(forKey: "state")
-                            
-                            print(last)
-                            print(tempState)
                             
                             if tempState as? String == "requested" {
                                 last = tempArr![tempArr!.endIndex - 2] as! NSDictionary
@@ -186,12 +181,7 @@ class LoginViewController: UIViewController {
 
                             }
                             
-                            print(last)
-                            print(tempState)
-                            
                             if tempState as? String == "received" {
-                                
-                                print("INSIDE RECEIVED \(data.key)")
                                 
                                 let lat = Double(last.value(forKey: "lat") as! String)
                                 let long = Double(last.value(forKey: "long") as! String)
