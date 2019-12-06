@@ -8,12 +8,15 @@
 
 import UIKit
 import FirebaseFirestore
+import MapKit
 
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginStatusLabel: UILabel!
+    
+    var lastKnownCoordinates : [CustomLocation] = []
     
     var ID : String = ""
     
@@ -67,6 +70,7 @@ class LoginViewController: UIViewController {
             return
         }
         
+       
         //simple login
         db.collection("parents").getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -82,11 +86,8 @@ class LoginViewController: UIViewController {
 
                             }
 
-
-                            self.performSegue(withIdentifier: "loginSegue",sender: self)
-                            
-                            self.loginStatusLabel.textColor = .green
-                            self.loginStatusLabel.text = "Logged in successfully!"
+                            self.generateLastCoordinates()
+                
                             
                         }
                     }
@@ -129,12 +130,14 @@ class LoginViewController: UIViewController {
             destinationViewController2.childID = ID
             
         } else if segue.identifier == "loginSegue" {
-            
+                        
             let barViewControllers = segue.destination as! UITabBarController
             let nav = barViewControllers.viewControllers![0] as! UINavigationController
             let destinationViewController = nav.viewControllers[0] as! SubjectViewController
+            let destinationViewController3 = barViewControllers.viewControllers![1] as! SecondViewController
             destinationViewController.parentID = ID
             destinationViewController.subjects = childArray
+            destinationViewController3.points = lastKnownCoordinates
             
             let nav2 = barViewControllers.viewControllers![2] as! UINavigationController
             let destinationViewController2 = nav2.viewControllers[0] as! SettingsTableViewController
@@ -144,6 +147,66 @@ class LoginViewController: UIViewController {
 
         }
 
+    }
+    
+    
+    private func generateLastCoordinates() {
+        
+          let docRef = self.db.collection("channels").document(ID)
+        
+               docRef.getDocument { (document, error) in
+                       
+                   if let document = document, document.exists {
+                       
+                    for data in document.data()! {
+                        
+                        let tempArr = data.value as? Array<Any>
+                        
+                        if tempArr!.count >= 3 {
+                            
+                            print("INSIDE IF \(data.key)")
+                            
+                            var last = tempArr![tempArr!.endIndex - 1] as! NSDictionary
+                        
+                            
+                            var tempState = last.value(forKey: "state")
+                            
+                            print(last)
+                            print(tempState)
+                            
+                            if tempState as? String == "requested" {
+                                last = tempArr![tempArr!.endIndex - 2] as! NSDictionary
+                                tempState = last.value(forKey: "state")
+
+
+                            }
+                            
+                            print(last)
+                            print(tempState)
+                            
+                            if tempState as? String == "received" {
+                                
+                                print("INSIDE RECEIVED \(data.key)")
+                                
+                                let lat = Double(last.value(forKey: "lat") as! String)
+                                let long = Double(last.value(forKey: "long") as! String)
+
+                                self.lastKnownCoordinates.append(CustomLocation(lat: lat!, long: long!, title: data.key))
+
+                            }
+                        }
+
+                    }
+                    self.performSegue(withIdentifier: "loginSegue",sender: self)
+                                       
+                    self.loginStatusLabel.textColor = .green
+                    self.loginStatusLabel.text = "Logged in successfully!"
+
+                       } else {
+                           print("Document does not exist")
+                       }
+                   }
+        
     }
     
 

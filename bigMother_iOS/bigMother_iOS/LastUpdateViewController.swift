@@ -33,6 +33,9 @@ class LastUpdateViewController: UIViewController, CLLocationManagerDelegate, MKM
     var channelID = ""
     
     var recentUpdate : NSDictionary = [:]
+    
+    var lat : Double = 0.0
+    var long : Double = 0.0
 
     
     var db:Firestore!
@@ -128,13 +131,15 @@ class LastUpdateViewController: UIViewController, CLLocationManagerDelegate, MKM
 
                                 let emotionVal = lastMsg.value(forKey: "emotionalState")
 
-                                let latitude = lastMsg.value(forKey: "lat")
+                                let latitude = lastMsg.value(forKey: "lat") as? String
 
-                                let longitude = lastMsg.value(forKey: "long")
+                                let longitude = lastMsg.value(forKey: "long") as? String
                                 
+//                                self.lat = Double(latitude!)
+//                                self.long = Double(longitude!)
                                 
-                                print("Latitude: \(latitude)\nLongitude: \(longitude)")
-                                
+                                print(self.lat)
+                                print(self.long)
                                 
                                 
                                 self.activityLabel.text = activityVal as? String
@@ -182,7 +187,7 @@ class LastUpdateViewController: UIViewController, CLLocationManagerDelegate, MKM
     {
 //        let target:CLLocationCoordinate2D = manager.location!.coordinate
         
-        let center = CLLocationCoordinate2D(latitude: 49, longitude: -122)
+        let center = CLLocationCoordinate2D(latitude: self.lat, longitude: self.long)
 
         
         myMapView.mapType = MKMapType.standard

@@ -11,5 +11,6 @@ target 'bigMother_iOS' do
 
 	pod 'Firebase/Auth'
 	pod 'Firebase/Firestore'
+	pod 'NotificationView'
 
 end
