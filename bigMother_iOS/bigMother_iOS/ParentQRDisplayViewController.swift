@@ -25,6 +25,7 @@ class ParentQRDisplayViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         generateQRCode()
+        slider.transform = slider.transform.scaledBy(x: 2, y: 2)
     }
     
 
