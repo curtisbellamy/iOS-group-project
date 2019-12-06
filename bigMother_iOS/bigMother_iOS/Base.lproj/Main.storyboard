@@ -1125,7 +1125,6 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="entryFailText" destination="Sw8-aK-sna" id="aUy-uo-10d"/>
                         <outlet property="loginStatusLabel" destination="ahW-bT-yas" id="VS6-KO-IIq"/>
                         <outlet property="passwordTextField" destination="B7C-Z8-JaG" id="zwy-eC-2Sa"/>
                         <outlet property="usernameTextField" destination="cFJ-dV-Zyp" id="4T7-Td-G6B"/>
